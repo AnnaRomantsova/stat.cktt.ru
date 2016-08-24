@@ -1,0 +1,83 @@
+
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="/_js/charts.js"></script>
+  <link rel="stylesheet" href="/_css/tabs.css">     
+                                                
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+ 
+ <link rel="stylesheet" href="/_css/print-graph.css">
+ <link rel="stylesheet" href="/_css/diag.css">
+ 
+ <!--выпад список-->  
+<link rel="stylesheet" type="text/css" href="/_css/drop.css" />
+<script type="text/javascript" src="/_js/drop.js"></script>
+<script type="text/javascript"  src="/_js/diag_filters.js"></script>  
+
+
+      <h3>Размещение план-графиков в разрезе ГРБС в [%year_n%] г., %</h3>
+                            
+            
+             <table width="900">
+               <tr style="valign:top"  align="center"><td width="600">
+        			    	<canvas id="canvas2" height="450" width="600"></canvas>
+                    <ul class="pie-legend">
+          			     <li><span width=30 style="background-color:#ABC7D6; width:30px; heigth:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Размещено</li>
+          			     <li><span width=30 style="background-color:#DFE0E1; width:30px; heigth:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Всего ПБС </li>
+                         <br>
+          			     
+          			  </ul>
+               </td>
+               <td width="200" valign="top"  align="center" style="vertical-align:top">
+               
+                   <table class="tables">
+            			   <tr> <td>Наименование ГРБС</td><td>Размещено</td><td>Всего ПБС</td></tr>
+                     
+                     [%d2/{<tr><td>[%name%]</td><td>[%cnt%]</td><td>[%cnt2%]</td></tr> }%]
+                   </table>  
+          			   
+                 </td></tr>
+              </table>      
+            
+  <script>
+		
+	window.onload = function(){
+           var barChartData = {
+          		labels : [[%d2/{"[%i%]"[%zpt%]}%] ],
+          		datasets : [
+          
+          			{
+          				fillColor : "rgba(151,187,205,0.5)",
+          				strokeColor : "rgba(151,187,205,0.8)",
+          				highlightFill : "rgba(151,187,205,0.75)",
+          				highlightStroke : "rgba(151,187,205,1)",
+          				data : [ [%d2/{[%cnt%][%zpt%]}%]]
+          			},
+          			{
+                      label: "My First dataset",
+                      fillColor: "rgba(220,220,220,0.5)",
+                      strokeColor: "rgba(220,220,220,0.8)",
+                      highlightFill: "rgba(220,220,220,0.75)",
+                      highlightStroke: "rgba(220,220,220,1)",
+                     data : [ [%d2/{[%cnt2%][%zpt%]}%]]
+                }
+          		]
+          	}
+			
+			 var ctx = document.getElementById("canvas2").getContext("2d");
+				 window.myBar = new Chart(ctx).Bar(barChartData, {
+					//responsive : true,
+					scaleOverride: true,
+     				scaleSteps: 10,
+	    			scaleStepWidth:[%step2%],
+         });
+     };
+	
+   </script>
+
+
+
+
+a

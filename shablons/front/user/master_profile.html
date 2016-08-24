@@ -1,0 +1,135 @@
+<div class="page-in profile">
+   <div class="profile-info">
+
+           <div class="profile-name clearfix">
+
+                   <div class="photo">
+                           [%image1/{<img src="[%src%]" />}%]
+                   </div>
+
+                   <div class="name">
+                           <p><span>[%fio%]</span> <sup class="status[%bisy%]">[%status%]</sup></p>
+                   </div>
+
+                   <div class="profile-city">
+                           <p>[%city%]</p>
+                   </div>
+                   [%mess/{
+                   <div class="profile-action">
+                           <a href="/lk/edit/1" class="icon-profile-edit">Редактировать</a>
+
+                   </div>
+                   }%]
+           </div>
+
+           <div class="profile-dscr">
+                   <p>[%about%]</p>
+           </div>
+
+           <div class="profile-contact">
+
+                   <div class="part-1">
+
+                           <h5 class="vol-1">Контакты:</h5>
+
+                           <p><span>skype:</span> [%skipe%]</p>
+                           <p><span>Телефон:</span> [%tel%]</p>
+                           <p><span>Сайт:</span> <a href="[%link%]">[%link%]</a></p>
+
+                   </div>
+
+                   <div class="part-2">
+
+                           <h5 class="vol-2">Опыт работы:</h5> [%experience%]
+
+                           <h5 class="vol-1">График работы:</h5>
+
+                           <p>[%grafic%]</p>
+
+                   </div>
+
+           </div>
+
+           <div class="profile-tags">
+
+                   <div class="tags">
+                            [%user_types/{ <a href="/master/razdel/[%id%]">[%name%]</a>[%zpt%]}%]
+                   </div>
+
+                   <div class="profile-see-info">
+
+                           <span><i class="icon-see"></i> [%watch%]</span>
+                           <span><i class="icon-comment"></i> [%cnt_review%]</span>
+
+                   </div>
+
+           </div>
+
+           <div class="profile-portfolio">
+
+                   <h4 class="profile-title">Портфолио</h4>
+
+                   <div class="portfolio-photo-wr">
+
+                           [%photo/{
+                              <a href="#" class="portfolio-photo">
+                                  [%image1/{<img src="[%src%]" /> }%]
+                                  <div class="text">[%about%]</div>
+                              </a>
+                           }%]
+
+                           [%no_photo/{ <div class="err_message"> У Вас пока нет портфолио</div>}%]
+
+                           <div class="more-photo">
+
+                            [%more_photo/{
+                              <a href="#" class="portfolio-photo">
+                                  [%image1/{<img src="[%src%]" /> }%]
+                                  <div class="text">[%about%]</div>
+                              </a>
+                            }%]
+                   </div>
+
+
+
+                   [%more_photo/{<a href="#" class="portfolio-photo-more">Развернуть все</a>}%]
+
+           </div>
+
+           <div class="profile-ot-wr">
+
+                   <h4 class="profile-title">Отзывы </h4>
+
+                    [%message/{
+                      <h3 class="page-title" style="color:red">[%./message%]</h3>
+                    }%]
+                   [%review/{
+                   <div class="profile-ot">
+                          [%image1/{
+                           <div class="profile-ot-photo">
+                                   <img src="[%src%]" alt="">
+                           </div>
+                          }%]
+                           <div class="profile-ot-name">
+                                   <a href="/master_profile/id/[%id%]"><p class="name">[%fio%]</p></a>
+                                   <p class="date">[%date%]</p>
+                           </div>
+
+                           <div class="profile-ot-text">
+                                   <p>[%about%]</p>
+                           </div>
+
+                   </div>
+                   }%]
+                    [%no_review/{ <div class="err_message">У Вас пока нет отзывов</div>}%]
+           </div>
+
+
+
+
+   </div>
+
+   <div class="profile-money">
+           <p>[%price%]</p>
+   </div>
+</div>

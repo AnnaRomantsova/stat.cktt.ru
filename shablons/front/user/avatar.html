@@ -1,0 +1,28 @@
+<div class="page-in edit-profile">
+ <h4 class="page-title">Изменить аватар</h4>
+
+      <form method="POST" name="del_form" id="del_form" action="">
+              <input type="hidden" name="del" value="1">
+     </form>
+
+
+ <form method="post" action="" name="save" id="add_form" enctype="multipart/form-data">
+  <input type="hidden" name="save" value="1">
+ <div class="edit-portfolio-wr">
+        <div class="edit-portfolio">
+              <div class="portfolio-photo">
+                     <input type="file" name="image1" size="20"  onchange="fileIsImage(this);" /><br><br><br><br />
+                           [%image1/{<img class='img'  src="[%src%]"  alt="[%./alt1%]" /> <br><br><br>
+
+                           }%]
+
+              </div>
+               [%is_avatar/{<a href="#" onclick="submit_forms('del_form')" class="icon-trash"></a>}%]
+         </DIV>
+         <div class="action-link">
+             <a href="#" class="btn-yes" onclick="submit_forms('add_form')">Сохранить</a>
+             <a href="/lk" class="btn-no">Отменить</a>
+         </div>
+   </div>
+  </form>
+ </div>

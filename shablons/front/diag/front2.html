@@ -1,0 +1,200 @@
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+  <script src="/_js/charts.js"></script>
+ <link rel="stylesheet" href="/_css/diag.css">
+
+
+
+ <!--1 диаграмма-->
+ <h3>Доля заказов с группировкой по ГРБС от общей стоимости, %</h3>
+     <div id="canvas-holder" style="width:80%; align:center; padding-left:50px;">
+			<canvas id="chart-area1" width="450" height="450"/></canvas>
+			<div id="legend1" class="legend" width="450" height="450">
+			  <ul class="pie-legend">
+			     [%d1/{<li><span style="background-color:#46BFBD"></span>[%i%]: [%name%]</li> }%]
+			  </ul>
+			 </div>
+	</div>
+	  <script>
+		var pieData = [
+				[%d1/{
+				{
+					value: [%summ%],
+					color:"[%color%]",
+					highlight: "#FF5A5E",
+					label: '[%i%]'
+				},
+				}%]
+			];
+			window.onload = function(){
+
+			};
+	</script>
+ <!--1 диаграмма-->
+ <!--2 диаграмма-->
+  <h3>Процент размещения ПБС план-графиков с группировкой по ГРБС, %</h3>
+
+    <!--<div id="bar2"></div>  -->
+    <div style="width:80%; align:center; padding-left:50px;">
+			<canvas id="canvas2" height="450" width="600"></canvas>
+			<div id="legend2" class="legend" width="450" height="450"/></div>
+			<div id="legend2" class="legend" width="450" height="450">
+			  <ul class="pie-legend">
+			     <li><span width=30 style="background-color:#ABC7D6; width:30px; heigth:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>  % кол-ва размещенных план-графиков данным ГРБС от всех ГРБС</li>
+			     <li><span width=30 style="background-color:#DFE0E1; width:30px; heigth:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>  % разместивших план-графики ПБС данного ГРБС </li>
+               <br>
+			     [%d2/{<li><span style="background-color:#46BFBD"></span>[%i%]: [%name%]</li> }%]
+			  </ul>
+			 </div>
+	</div>
+    <script>
+	var barChartData = {
+		labels : [[%d2/{"[%i%]"[%zpt%]}%] ],
+		datasets : [
+
+			{
+				fillColor : "rgba(151,187,205,0.5)",
+				strokeColor : "rgba(151,187,205,0.8)",
+				highlightFill : "rgba(151,187,205,0.75)",
+				highlightStroke : "rgba(151,187,205,1)",
+				data : [ [%d2/{[%cnt%][%zpt%]}%]]
+			},
+			{
+            label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [65, 59, 80, 81, 56, 55, 40]
+        }
+		]
+	}
+	</script>
+ <!--2 диаграмма-->
+ <!--3 диаграмма-->
+  <h3>5 наиболее часто используемых ОКПД, тыс. руб</h3>
+
+    <div id="canvas-holder" style="width:80%; align:center; padding-left:50px;">
+			<canvas id="chart-area3" width="500" height="500"/>
+    </div>
+
+ <!--3 диаграмма-->
+ <!--4 диаграмма-->
+ <h3>График размещения заказов в течение текущего года, тыс. руб </h3>
+		<div style="width:70% align:center; padding-left:15px;">
+			<div>
+				<canvas id="canvas4" height="150" ></canvas>
+			</div>
+		</div>
+
+
+	<script>
+
+		var lineChartData = {
+			labels : ["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"],
+			datasets : [
+
+				{
+					label: "My Second dataset",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [
+					    [%d4/{[%summ%],}%]
+					]
+				}
+			]
+		}
+
+	</script>
+
+ <!--4 диаграмма-->
+  <!--5 диаграмма-->
+  <h3>Доля способов размещения заказа от общей стоимости, тыс. руб.</h3>
+     <div id="canvas-holder" style="width:80%; align:center; padding-left:100px;">
+			<canvas id="chart-area5" width="600" height="600"/>
+
+	</div>
+	  <script>
+		var pieData5 = [
+				[%d5/{
+				{
+					value: [%summ%],
+					color:"[%color%]",
+					highlight: "#FF5A5E",
+					label: '[%name%]'
+				},
+				}%]
+			];
+
+	</script>
+ <!--5 диаграмма-->
+  <script>
+		var polarData = [
+		  [%d3/{
+				{
+					value: [%cnt%],
+					color:"[%color%]",
+					highlight: "#FF5A5E",
+					label: '[%name%]'
+				},
+				}%]
+		   ];
+			window.onload = function(){
+				var ctx = document.getElementById("chart-area3").getContext("2d");
+
+				window.myPolarArea = new Chart(ctx).PolarArea(polarData, {
+					responsive:true,
+					pointLabelFontSize : 14,
+					tooltipFontSize: 12,
+				});
+
+
+				var ctx = document.getElementById("chart-area1").getContext("2d");
+				window.myPie = new Chart(ctx).Pie(pieData,{
+				   pointLabelFontSize : 14,
+				   tooltipFontSize: 12,
+				   legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+                });
+
+                var ctx = document.getElementById("chart-area5").getContext("2d");
+				window.myPie5 = new Chart(ctx).Pie(pieData5,{
+				   pointLabelFontSize : 12,
+				   tooltipFontSize: 12,
+
+                });
+
+                 var ctx = document.getElementById("canvas4").getContext("2d");
+				  window.myLine = new Chart(ctx).Line(lineChartData, {
+					responsive: true,
+					pointHitDetectionRadius : 20,
+					bezierCurveTension : 0,
+					scaleOverride: true,
+				    scaleSteps: 11,
+				    scaleStepWidth: [%step4%],
+
+				 });
+
+				 var ctx = document.getElementById("canvas2").getContext("2d");
+				 window.myBar = new Chart(ctx).Bar(barChartData, {
+					//responsive : true,
+					scaleOverride: true,
+     				scaleSteps: 10,
+	    			scaleStepWidth:[%step2%],
+
+
+		      	 });
+
+
+			};
+
+   </script>
+
+
+
+

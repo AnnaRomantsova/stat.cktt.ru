@@ -1,0 +1,21 @@
+<!-- MENU SUB -->
+[%menu/{
+<aside class="menu">
+ <!-- <h4 class="menu-title">Обучение</h4>-->
+  <h4 class="menu-title">Меню</h4>
+  <ul class="menu-list">
+     [%sub/{
+     [%T/?
+        A  {   <li><a href="/[%./href%]" >[%./name%]   </a></li> }
+        S  {   <li><a href="/[%./href%]" class='active'>[%./name%]</a></li> }
+        SA {   <li><a href="/[%./href%]" class='active'>[%./name%]</a></li> }
+
+     %]
+     }%]
+     [%././exit/{<li><a href="/auth/exit/1" >Выход </a></li>}%]
+  </ul>
+  </aside>
+}%]
+<!-- /MENU SUB -->
+
+

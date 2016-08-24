@@ -1,0 +1,67 @@
+<!-- manage -->
+<script>
+   function form_submit(name)
+   {
+      var f = document.forms[name];
+      f.submit();
+      return false;
+   }
+
+   function check(name)
+   {
+      var f = document.forms[name];
+      //alert(name);
+      if (val(f,new Array([%fieldsWithoutFail%])) ==true )
+         form_submit(name);
+
+   }
+</script>
+<script src="/_js/func_validFields.js"></script>
+
+   <div class="page-in write-us text-page">
+
+        <h4 class="page-title">Подписка на рассылку</h4>
+
+          [%message/?
+
+            er  {
+             <h3 class="page-title" style="color:red">
+                 Ошибка: не удалось отправить сообщение.
+               <br />Приносим извинения за временные технические неполадки.
+             </h3>
+
+            }
+
+            ok  {
+             <h3 class="page-title" style="color:red">
+                Ваше сообщение было успешно отправлено.
+             </h3>
+            }
+         }%]
+         <p class="normal-text">[%content%] </p><br>
+     <form name='regesty' method="post" action="">
+            <div class="line-edit clearfix">
+                         <label for="" class="description-field">E-mail*</label>
+                         <input name = "email" type="text" class="long-input">
+            </div>
+            <div class="line-edit clearfix">
+                         <label for="" class="description-field">Имя</label>
+                         <input name = "fio" type="text" class="long-input">
+            </div>
+
+            <div class="line-edit clearfix">
+                         <label for="" class="description-field">Сообщение*</label>
+                         <textarea name="text"  class="long-textarea" type='text' rows="10" cols=""></textarea>
+            </div>
+
+            <input type="hidden" name="send" value="1">
+            <div class="action-link">
+                   <a href="#" onclick="check('regesty');" class="btn-yes">Отправить</a>
+            </div>
+
+
+      </form>
+    </div>
+
+<!-- /manage-->
+

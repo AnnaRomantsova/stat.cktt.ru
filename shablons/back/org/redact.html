@@ -1,0 +1,64 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type="text/javascript">
+        include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js','/_js/func_validFields.js'));
+</script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       [%path/[back/path.html]%]</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br />
+
+[%calend1/include/[]%]
+
+<form action="?save[%add/{_new=1}%][%edit/{=[%./id%]}%]" method="post" enctype="multipart/form-data" onsubmit="return val(this,new Array('name'));">
+
+  <br>
+
+<table cellspacing="3" class="form">
+   <tr><td></td><td ></td></tr>
+    <tr valign="bottom">
+       <td colspan=1>Наименование организации: </td><td><input type='text' name='name_pbs' value="[%name_pbs%]" size=70 class="textinput" /><br><br><br></td>
+
+     </tr>
+      <tr><td>ГРБС</td>
+       <td><select name="id_grbs" width='200'>
+           [%grbs/{
+              <option value=[%id%] [%selected%]>[%name%]</option>
+           }%]
+           </select>
+           <br>  <br> <br>
+   </td></tr>
+    <tr valign="bottom">
+       <td colspan=1>ИНН организации:</td><td> <input type='text' name='inn_pbs' value="[%inn_pbs%]" size=70 class="textinput" /><br><br><br></td>
+
+     </tr>
+     <tr valign="bottom">
+       <td colspan=1>ИНН ГРБС: </td><td><input type='text' name='inn_grbs' value="[%inn_grbs%]" size=70 class="textinput" /><br><br><br></td>
+
+     </tr>
+     <tr valign="bottom">
+       <td colspan=1>Код СПЗ: </td><td><input type='text' name='spz' value="[%spz%]" size=70 class="textinput" /><br><br><br></td>
+
+     </tr>
+     <input type="hidden" name="pabl" value="1">
+
+</table>
+
+
+<br /><br />
+
+<br /><br />
+<input type='submit' value='' class='save_but'>&nbsp;&nbsp;
+<input type='button' value='' class='cnsl_but' onclick="location.href='?[%edit/{id_back=[%./id%]}%]';">
+</form>
+</body>
+</html>

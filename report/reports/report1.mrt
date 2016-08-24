@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer application="StiReport" type="Flex" version="1.02">
+  <Dictionary isKey="true" Ref="1" type="Dictionary">
+    <Databases isList="true" count="1">
+      <parse isKey="true" Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase">
+        <Alias>parse</Alias>
+        <ConnectionStringEncrypted>w1bza84De83jTe3cZADkP9VWZSjGXJuZYkn9+E0AYmffcPXLxhgxvGJJ1czhRGRei1T7SA==</ConnectionStringEncrypted>
+        <Name>parse</Name>
+      </parse>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <plan isKey="true" Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>plan</Alias>
+        <Columns isList="true" count="17">
+          <value>id,System.Int32</value>
+          <value>planNumber,System.String</value>
+          <value>year,System.Int32</value>
+          <value>regNum,System.Int32</value>
+          <value>responsible_email,System.String</value>
+          <value>responsible_fax,System.String</value>
+          <value>responsible_middleName,System.String</value>
+          <value>responsible_firstName,System.String</value>
+          <value>responsible_lastName,System.String</value>
+          <value>oktmo_name,System.String</value>
+          <value>oktmo_code,System.String</value>
+          <value>customer_fullName,System.String</value>
+          <value>customer_regNum,System.String</value>
+          <value>publishDate,System.String</value>
+          <value>confirmDate,System.String</value>
+          <value>createDate,System.String</value>
+          <value>fullName,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>plan</Name>
+        <NameInSource>parse</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select * from plan</SqlCommand>
+      </plan>
+      <products isKey="true" Ref="4" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>products</Alias>
+        <Columns isList="true" count="27">
+          <value>id,System.Int32</value>
+          <value>plan_id,System.Int32</value>
+          <value>positionNumber,System.String</value>
+          <value>kbk_code,System.String</value>
+          <value>year,System.String</value>
+          <value>yearAmount,System.String</value>
+          <value>OKVED_code,System.String</value>
+          <value>OKVED_name,System.String</value>
+          <value>contractSubjectName,System.String</value>
+          <value>contractMaxPrice,System.String</value>
+          <value>payments,System.String</value>
+          <value>contractCurrency_code,System.String</value>
+          <value>contractCurrency_name,System.String</value>
+          <value>placingWay_name,System.String</value>
+          <value>positionPublishDate,System.String</value>
+          <value>noPublicDiscussion,System.String</value>
+          <value>position_id,System.Int32</value>
+          <value>okpd_code,System.String</value>
+          <value>okpd_name,System.String</value>
+          <value>name,System.String</value>
+          <value>minRequirement,System.String</value>
+          <value>okei_code,System.String</value>
+          <value>okei_name,System.String</value>
+          <value>summax,System.String</value>
+          <value>quantityCurrentYear,System.String</value>
+          <value>quantity,System.String</value>
+          <value>price,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>products</Name>
+        <NameInSource>parse</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select * from positions pos,products prod where pos.id=prod.position_id</SqlCommand>
+      </products>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="0"/>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 isKey="true" Ref="5" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <DataBand1 isKey="true" Ref="6" type="DataBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,14.2</ClientRectangle>
+          <Components isList="true" count="32">
+            <Text2 isKey="true" Ref="7" type="Text">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.8,9.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Номер позиции в плане-графике: {products.positionNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text4 isKey="true" Ref="8" type="Text">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.4,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Классификация по ОКВЭД:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text4>
+            <Text7 isKey="true" Ref="9" type="Text">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,2,16.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.contractSubjectName}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text7>
+            <Text8 isKey="true" Ref="10" type="Text">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2,2.8,1.2</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Наименование предмета
+контракта:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text9 isKey="true" Ref="11" type="Text">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.2,3.2,3.4,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.contractMaxPrice}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text9>
+            <Text10 isKey="true" Ref="12" type="Text">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,3.2,7.2,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Ориентировочная (начальная) максимальная 
+стоимость контракта:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <Text44 isKey="true" Ref="13" type="Text">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.6,3.2,5,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Размер выплат в текущем году
+исполнения контракта</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text44>
+            <Text6 isKey="true" Ref="14" type="Text">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.6,3.2,3.4,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.payments}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text6>
+            <Text1 isKey="true" Ref="15" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,1.4,14.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.OKVED_code} {products.OKVED_name}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text5 isKey="true" Ref="16" type="Text">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,4.2,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Валюта контрата</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text3 isKey="true" Ref="17" type="Text">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,4.2,6.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.contractCurrency_code} {products.contractCurrency_name}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text11 isKey="true" Ref="18" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.8,4.8,6.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.placingWay_name}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text12 isKey="true" Ref="19" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,4.8,5.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Способ определения поставщика</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text12>
+            <Text13 isKey="true" Ref="20" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.8,5.4,7.6,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.positionPublishDate}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text13>
+            <Text14 isKey="true" Ref="21" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,5.4,5.8,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Дата публикации позиции плана-
+графика</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text14>
+            <Text15 isKey="true" Ref="22" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,6.4,12,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Товары, работы, услуги</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 isKey="true" Ref="23" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.8,0,7.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Позиции плана-графика</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text16>
+            <Text17 isKey="true" Ref="24" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,7,14,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.name}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text17>
+            <Text18 isKey="true" Ref="25" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,7,5,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Наименование товара, работ,
+услуг</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text19 isKey="true" Ref="26" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,8,13.8,1.4</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.minRequirement}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text19>
+            <Text20 isKey="true" Ref="27" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,8,5,1.4</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Минимально необходимые
+требования, предъявляемые к
+товару, работе, услуге.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text20>
+            <Text21 isKey="true" Ref="28" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,9.4,4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.okei_code}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text21>
+            <Text22 isKey="true" Ref="29" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,9.4,5,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Единица измерения</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text22>
+            <Text23 isKey="true" Ref="30" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9,9.4,7.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.okei_name}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text23>
+            <Text24 isKey="true" Ref="31" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,10,4.4,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.summax}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text24>
+            <Text25 isKey="true" Ref="32" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,10,5,1</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Максимальный объем 
+оплаты по контракту</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text25>
+            <Text26 isKey="true" Ref="33" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,11,4.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.quantityCurrentYear}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text26>
+            <Text27 isKey="true" Ref="34" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,11,4.8,1.4</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Количество (объем) поставки в
+текущем году исполнения
+контракта</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text27>
+            <Text28 isKey="true" Ref="35" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13.8,11,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.quantity}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text28>
+            <Text29 isKey="true" Ref="36" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.2,11,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Количество (объем)</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text29>
+            <Text30 isKey="true" Ref="37" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3,12.4,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>{products.price}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text30>
+            <Text31 isKey="true" Ref="38" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,12.4,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="5"/>
+              <Parent isRef="6"/>
+              <Text>Цена за единицу</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text31>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <DataSourceName>plan</DataSourceName>
+          <Filters isList="true" count="0"/>
+          <Name>DataBand1</Name>
+          <Page isRef="5"/>
+          <Parent isRef="5"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>e05261603cc5dcf51ddf7d6d76ae9fce</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="39" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings isKey="true" Ref="40" type="Stimulsoft.Report.Print.StiPrinterSettings"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>02/12/2015 04:08:15 PM</ReportChanged>
+  <ReportCreated>02/12/2015 01:55:00 PM</ReportCreated>
+  <ReportFile>C:\Users\Romantsova\Documents\Report1.mrt</ReportFile>
+  <ReportGuid>c2416ef98d184641aa5f7de775f013c5</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.3</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

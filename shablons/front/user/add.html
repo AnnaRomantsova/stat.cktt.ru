@@ -1,0 +1,43 @@
+
+<script>
+
+   function check(name)
+   {
+      var f = document.forms[name];
+      //alert(name);
+      if (val(f,new Array('image1')) ==true )
+         submit_forms('add_form');
+
+   }
+</script>
+<script src="/_js/func_validFields.js"></script>
+
+<div class="page-in edit-profile">
+ <h4 class="page-title">Добавление работы</h4>
+
+ <form method="post" action="/add_photo" name="save" id="add_form" enctype="multipart/form-data">
+  <input type="hidden" name="save" value="1">
+ <div class="edit-portfolio-wr">
+        <div class="edit-portfolio">
+              <div class="portfolio-photo">
+                     Фотография*<br><br>
+                     <input type="file" name="image1" size="20"  onchange="fileIsImage(this);" /><br />
+                           [%image1/{<img class='img'  src="[%src%]"  alt="[%./alt1%]" /> }%]
+              </div>
+              <br><br><br><br>
+              <div class="portfolio-description" style="margin-left:10px;">
+                      <h6>Описание</h6>
+                      <textarea name="about" id="" class="short-textarea"></textarea>
+                      <div class="show-in-gallery">
+                              <input type="checkbox" id="show-1" name="pabl" value="1" checked class="transform-check">
+                              <label for="show-1">Показывать в галерее</label>
+                      </div>
+              </div>
+         </DIV>
+         <div class="action-link">
+             <a href="#" class="btn-yes" onclick="check('add_form')">Сохранить</a>
+             <a href="/lk" class="btn-no">Отменить</a>
+         </div>
+   </div>
+  </form>
+ </div>

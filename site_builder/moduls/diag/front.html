@@ -1,0 +1,467 @@
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+  <script src="/_js/charts.js"></script>
+  <link rel="stylesheet" href="/_css/tabs.css">     
+                                                 ,   
+   
+  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  
+  jQuery(document).ready(function(){
+     $('#tab_[%tab%]').prop("checked", true);
+  });
+  </script>
+  
+  
+ <link rel="stylesheet" href="/_css/diag.css">
+ 
+ <!--выпад список-->  
+<link rel="stylesheet" type="text/css" href="/_css/drop.css" />
+<script type="text/javascript" src="/_js/drop.js"></script>
+<script type="text/javascript"  src="/_js/diag_filters.js"></script>  
+
+  <section class="tabs">
+	<input id="tab_1" type="radio" name="tab" checked="checked" />
+	<input id="tab_2" type="radio" name="tab" />
+	<input id="tab_3" type="radio" name="tab" />
+  <input id="tab_4" type="radio" name="tab" />
+  <input id="tab_5" type="radio" name="tab" />
+  <!-- <input id="tab_6" type="radio" name="tab" /> -->
+	
+	<label for="tab_1" id="tab_l1">График размещения</label>
+	<label for="tab_2" id="tab_l2">Способы закупок</label>
+	<label for="tab_3" id="tab_l3">ОКПД</label>
+  <label for="tab_4" id="tab_l4">ГРБС закупки</label>
+  <label for="tab_5" id="tab_l5">ГРБС план-графики</label>
+ <!-- <label for="tab_6" id="tab_l6">Контрольные значения</label>-->
+ 
+	<div style="clear:both"></div>
+ 
+	<div class="tabs_cont">
+		<div id="tab_c1">
+         <!--4 диаграмма-->
+         <h3>График-график размещения закупок в течение [%year_n%] г., тыс. руб </h3>
+          
+        		<div style="width:70% align:center; padding-left:15px;">
+        			<div>
+              <form name="form" method="get" action ="/diagramm" enctype="multipart/form-data">
+                  <input type="hidden" name="tab" value="1"> 
+                  <table class="zakup_table" >
+            		  <tr><td align='right'>Наименование ГРБС: </td>
+            		     <td align='left'>		
+            				
+            					<div id="grbs_list" class="wrapper-dropdown-4">Выбор ГРБС
+            						<ul class="dropdown">						    
+            							[%grbs_list/{<li><input type="checkbox" [%checked%] class="id_grbs1" id="el-[%id%]" name="grbs[]" value="[%id%]"><label for="el-[%id%]">[%name%]</label></li>}%]							
+            						</ul>
+            					</div>
+            		     </td>
+            
+            		   <td align='right' colspan="1">Наименование заказчика:</td>
+            		   <td align='left'>
+            			        <div id="org_list" class="wrapper-dropdown-4">Выбор ПБС
+            						<ul class="dropdown">						    
+            							[%org_list/{<li><input type="checkbox" [%checked%]  id="el-[%id%]" name="org[]" value="[%id%]"><label for="el-[%id%]">[%name%]</label></li>}%]							
+            						</ul>
+            					</div>			 
+            			</td>
+              		</tr>
+                  <tr >
+      		          <td colspan="1" align='right'>
+      			            Год план-графика:
+            			 </td>
+            			 <td width="160px;" >
+            			     <select name="year"  style="width:80px;"><option value=""></option>
+            			        [%year/{<option value="[%year%]" [%selected%] >[%year%]</option>}%]
+            		      	</select>
+            			 </td>
+            			 <td><input type="submit" value="Обновить"></td>
+            			 <td></td>
+            		</tr>
+                </table>  
+             </form> 
+               <table   width="900">
+               <tr style="valign:top"><td width="600">
+        			    	<canvas id="canvas4" height="150" ></canvas>
+               </td>
+               <td width="200" valign="top"  align="center" style="vertical-align:top">
+               
+                   <table class="tables">
+            			   <tr> <td>Период</td><td>Сумма</td></tr>
+                     [%d4/{<tr><td>[%mon%]</td><td>[%summ%]</td></tr> }%]
+                   </table>  
+          			   
+                 </td></tr>
+                 </table> 
+        			</div>
+        		</div>       
+        
+        	<script>        
+        		var lineChartData = {
+        			labels : ["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"],
+        			datasets : [
+        
+        				{
+        					label: "My Second dataset",
+        					fillColor : "rgba(151,187,205,0.2)",
+        					strokeColor : "rgba(151,187,205,1)",
+        					pointColor : "rgba(151,187,205,1)",
+        					pointStrokeColor : "#fff",
+        					pointHighlightFill : "#fff",
+        					pointHighlightStroke : "rgba(151,187,205,1)",
+        					data : [
+        					    [%d4/{[%summ%],}%]
+        					]
+        				}
+        			]
+        		}             
+        	</script>
+        
+         <!--4 диаграмма-->
+   </div>
+   <div id="tab_c2">
+          
+           <!--5 диаграмма-->
+            <h3>Общая стоимость заказов в разрезе способов закупок в [%year_n%] г., тыс. руб.</h3>
+               <div style="width:70% align:center; padding-left:15px;">
+        			<div>
+              <form name="form" method="get" action ="/diagramm" enctype="multipart/form-data">
+                  <input type="hidden" name="tab" value="2"> 
+                  <table class="zakup_table" >
+            		  <tr><td align='right'>Наименование ГРБС: </td>
+            		     <td align='left'>		
+            				
+            					<div id="grbs_list2" class="wrapper-dropdown-4">Выбор ГРБС
+            						<ul class="dropdown">						    
+            							[%grbs_list/{<li><input type="checkbox" [%checked%] class="id_grbs1" id="el-[%id%]" name="grbs[]" value="[%id%]"><label for="el-[%id%]">[%name%]</label></li>}%]							
+            						</ul>
+            					</div>
+            		     </td>
+            
+            		   <td align='right' colspan="1">Наименование заказчика:</td>
+            		   <td align='left'>
+            			      <div id="org_list2" class="wrapper-dropdown-4">Выбор ПБС
+            						<ul class="dropdown">						    
+            							[%org_list/{<li><input type="checkbox" [%checked%]  id="el-[%id%]" name="org[]" value="[%id%]"><label for="el-[%id%]">[%name%]</label></li>}%]							
+            						</ul>
+            					</div>			 
+            			</td>
+              		</tr>
+                  <tr >
+      		          <td colspan="1" align='right'>Год план-графика:</td>
+            			 <td width="160px;" >
+            			     <select name="year"  style="width:80px;"><option value=""></option>
+            			        [%year/{<option value="[%year%]" [%selected%] >[%year%]</option>}%]
+            		      	</select>
+            			 </td>
+            			 <td><input type="submit" value="Обновить"></td>
+            			 <td></td>
+            		</tr>
+                </table>  
+             </form> 
+              
+              <table   width="900">
+               <tr style="valign:top"><td width="600">
+        			    	<canvas id="bar2" height="450" width="600"></canvas>
+               </td>
+               <td width="200" valign="top"  align="center" style="vertical-align:top">
+               
+                   <table class="tables">
+            			   <tr> <td>Способ закупки</td><td>Сумма</td></tr>
+                     [%d5/{<tr><td>[%i%] : [%name%]</td><td>[%summ%]</td></tr> }%]
+                   </table>  
+          			   
+                 </td></tr>
+              </table>
+        
+        
+                </div> 
+            </div> 
+            
+           <!--5 диаграмма--> 
+   
+   </div>
+		<div id="tab_c3">
+ <!--3 диаграмма-->  
+  <h3>Доля ОКПД в общем объеме планируемых закупок в [%year_n%] г., тыс. руб</h3>
+            <form name="form" method="get" action ="/diagramm" enctype="multipart/form-data">
+                  <input type="hidden" name="tab" value="3"> 
+                  <table class="zakup_table" >
+            		  <tr><td align='right'>Наименование ГРБС: </td>
+            		     <td align='left'>		
+            				
+            					<div id="grbs_list3" class="wrapper-dropdown-4">Выбор ГРБС
+            						<ul class="dropdown">						    
+            							[%grbs_list/{<li><input type="checkbox" [%checked%] class="id_grbs1" id="el-[%id%]" name="grbs[]" value="[%id%]"><label for="el-[%id%]">[%name%]</label></li>}%]							
+            						</ul>
+            					</div>
+            		     </td>
+            
+            		   <td align='right' colspan="1">Наименование заказчика:</td>
+            		   <td align='left'>
+            			      <div id="org_list3" class="wrapper-dropdown-4">Выбор ПБС
+            						<ul class="dropdown">						    
+            							[%org_list/{<li><input type="checkbox" [%checked%]  id="el-[%id%]" name="org[]" value="[%id%]"><label for="el-[%id%]">[%name%]</label></li>}%]							
+            						</ul>
+            					</div>			 
+            			</td>
+              		</tr>
+                  <tr >
+      		          <td colspan="1" align='right'>Год план-графика:</td>
+            			 <td width="160px;" >
+            			     <select name="year"  style="width:80px;"><option value=""></option>
+            			        [%year/{<option value="[%year%]" [%selected%] >[%year%]</option>}%]
+            		      	</select>
+            			 </td>
+            			 <td><input type="submit" value="Обновить"></td>
+            			 <td></td>
+            		</tr>
+                </table>  
+             </form> 
+         
+            <table   width="900">
+               <tr style="valign:top"><td width="600">
+        			    	<canvas id="chart-area3" width="500" height="500"/>
+               </td>
+               <td width="200" valign="top"  align="center" style="vertical-align:top">
+               
+                   <table class="tables">
+            			   <tr> <td>Наименование ОКПД</td><td>Сумма</td></tr>
+                     [%d3/{<tr><td><span style="background-color:[%color%]" width="50" height="50">&nbsp;&nbsp;&nbsp;</span> [%name%]</td><td>[%cnt%]</td></tr> }%]
+                   </table>  
+          			   
+                 </td></tr>
+              </table>
+        
+        
+            <div id="canvas-holder" style="width:80%; align:center; padding-left:50px;">
+        		
+            </div>
+        
+<!--3 диаграмма-->
+    
+    
+    </div>
+  <div id="tab_c4"> 
+<!--1 диаграмма-->  
+    <h3>Доля заказов в разрезе ГРБС в [%year_n%] году, %</h3>
+                 <form name="form" method="get" action ="/diagramm" enctype="multipart/form-data">
+                  <input type="hidden" name="tab" value="4"> 
+                  <table class="zakup_table" >              		 
+                  <tr >
+      		          <td colspan="1" align='right'>Год план-графика:</td>
+            			 <td width="160px;" >
+            			     <select name="year"  style="width:80px;"><option value=""></option>
+            			        [%year/{<option value="[%year%]" [%selected%] >[%year%]</option>}%]
+            		      	</select>
+            			 </td>
+            			 <td><input type="submit" value="Обновить"></td>
+            			 <td></td>
+            		</tr>
+                </table>  
+             </form>
+           
+           <table   width="900">
+               <tr style="valign:top"  align="center"><td width="600">
+        			    	<canvas id="chart-area1" width="450" height="450"/></canvas>
+               </td>
+               <td width="200" valign="top"  align="center" style="vertical-align:top">
+               
+                   <table class="tables">
+            			   <tr> <td>Наименование ГРБС</td><td>Сумма</td></tr>
+                     [%d1/{<tr><td><span style="background-color:[%color%]" width="50" height="50">&nbsp;&nbsp;&nbsp;</span> [%name%]</td><td>[%summ%]</td></tr> }%]
+                   </table>  
+          			   
+                 </td></tr>
+              </table>             
+              
+           
+             
+          	  <script>
+          		var pieData = [
+          				[%d1/{
+          				{
+          					value: [%summ%],
+          					color:"[%color%]",
+          					highlight: "#FF5A5E",
+          					label: '[%i%]'
+          				},
+          				}%]
+          			];
+          			window.onload = function(){
+          
+          			};
+          	</script>
+<!--1 диаграмма-->
+  </div>
+  <div id="tab_c5">  
+            <!--2 диаграмма-->
+            <h3>Рразмещение план-графиков в разрезе ГРБС в [%year_n%] г., %</h3>
+                <form name="form" method="get" action ="/diagramm" enctype="multipart/form-data">
+                  <input type="hidden" name="tab" value="5"> 
+                  <table class="zakup_table" >              		 
+                  <tr >
+      		          <td colspan="1" align='right'>Год план-графика:</td>
+            			 <td width="160px;" >
+            			     <select name="year"  style="width:80px;"><option value=""></option>
+            			        [%year/{<option value="[%year%]" [%selected%] >[%year%]</option>}%]
+            		      	</select>
+            			 </td>
+            			 <td><input type="submit" value="Обновить"></td>
+            			 <td></td>
+            		</tr>
+                </table>  
+             </form>
+              <!--<div id="bar2"></div>  -->
+              
+            
+             <table width="900">
+               <tr style="valign:top"  align="center"><td width="600">
+        			    	<canvas id="canvas2" height="450" width="600"></canvas>
+                    <ul class="pie-legend">
+          			     <li><span width=30 style="background-color:#ABC7D6; width:30px; heigth:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Размещено</li>
+          			     <li><span width=30 style="background-color:#DFE0E1; width:30px; heigth:30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Всего ПБС </li>
+                         <br>
+          			     
+          			  </ul>
+               </td>
+               <td width="200" valign="top"  align="center" style="vertical-align:top">
+               
+                   <table class="tables">
+            			   <tr> <td>Наименование ГРБС</td><td>Размещено</td><td>Всего ПБС</td></tr>
+                     
+                     [%d2/{<tr><td>[%name%]</td><td>[%cnt%]</td><td>[%cnt2%]</td></tr> }%]
+                   </table>  
+          			   
+                 </td></tr>
+              </table>      
+            
+              <script>
+          	var barChartData = {
+          		labels : [[%d2/{"[%i%]"[%zpt%]}%] ],
+          		datasets : [
+          
+          			{
+          				fillColor : "rgba(151,187,205,0.5)",
+          				strokeColor : "rgba(151,187,205,0.8)",
+          				highlightFill : "rgba(151,187,205,0.75)",
+          				highlightStroke : "rgba(151,187,205,1)",
+          				data : [ [%d2/{[%cnt%][%zpt%]}%]]
+          			},
+          			{
+                      label: "My First dataset",
+                      fillColor: "rgba(220,220,220,0.5)",
+                      strokeColor: "rgba(220,220,220,0.8)",
+                      highlightFill: "rgba(220,220,220,0.75)",
+                      highlightStroke: "rgba(220,220,220,1)",
+                     data : [ [%d2/{[%cnt2%][%zpt%]}%]]
+                }
+          		]
+          	}
+          	</script>
+           <!--2 диаграмма--> 
+  </div>
+	</div>
+</section>
+
+
+
+
+ 
+
+
+  <script>
+		var polarData = [
+		  [%d3/{
+				{
+					value: [%cnt%],
+					color:"[%color%]",
+					highlight: "#FF5A5E",
+					label: '[%name%]'
+				},
+				}%]
+		   ];
+			window.onload = function(){
+				var ctx = document.getElementById("chart-area3").getContext("2d");
+
+				window.myPolarArea = new Chart(ctx).PolarArea(polarData, {
+					responsive:true,
+					pointLabelFontSize : 14,
+					tooltipFontSize: 12,
+				});
+
+
+				var ctx = document.getElementById("chart-area1").getContext("2d");
+				window.myPie = new Chart(ctx).Pie(pieData,{
+				   pointLabelFontSize : 14,
+				   tooltipFontSize: 12,
+				   legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+                });
+
+              
+
+         var ctx = document.getElementById("canvas4").getContext("2d");
+				  window.myLine = new Chart(ctx).Line(lineChartData, {
+					responsive: true,
+					pointHitDetectionRadius : 20,
+					bezierCurveTension : 0,
+					scaleOverride: true,
+				    scaleSteps: 11,
+				    scaleStepWidth: [%step4%],
+
+				 });
+
+				 var ctx = document.getElementById("canvas2").getContext("2d");
+				 window.myBar = new Chart(ctx).Bar(barChartData, {
+					//responsive : true,
+					scaleOverride: true,
+     				scaleSteps: 10,
+	    			scaleStepWidth:[%step2%],
+         });
+
+          var ctx = document.getElementById("canvas2").getContext("2d");
+				 window.myBar = new Chart(ctx).Bar(barChartData, {
+					//responsive : true,
+					scaleOverride: true,
+     				scaleSteps: 10,
+	    			scaleStepWidth:[%step2%],
+         });
+         
+         //2 диаграмма
+          	var bard2 = {
+          		labels : [[%d5/{"[%i%]"[%zpt%]}%] ],
+          		datasets : [             
+          			{
+          				fillColor : "rgba(151,187,205,0.5)",
+          				strokeColor : "rgba(151,187,205,0.8)",
+          				highlightFill : "rgba(151,187,205,0.75)",
+          				highlightStroke : "rgba(151,187,205,1)",
+          				data : [ [%d5/{[%summ%][%zpt%]}%]]
+          			}
+          		]
+          	}
+         
+         
+         var ctx = document.getElementById("bar2").getContext("2d");
+				 window.myBar = new Chart(ctx).Bar(bard2, {
+					  //responsive : true,
+					 // scaleOverride: true,
+     			//	scaleSteps: 10,
+	    		//	scaleStepWidth:[%step2%],
+         });
+        //конец 2 диаграмма 
+			};
+
+   </script>
+
+
+
+

@@ -1,0 +1,20 @@
+	<a href="#" onclick="$.fancybox.close();return false;" class="right" style="margin:-20px -10px 0 0;"><img src="/images/x.gif"></a>
+	{if $status}<input class="button right" id="{$item.id}" type="button" value="Принимать участие" style="margin:-13px 30px 0 0;" onclick="ajax({ldelim}mod:'uchastie',uid:{$user.id}, tid:{$item.id}{rdelim}, 'uchastie', this);" />{/if}<br />
+	<div class="lbl">Номер извещения:</div><div class="data">&nbsp;{$item.number}</div><br />
+		<div class="lbl">Документы</div><div class="data">&nbsp;<a href="{$item.docs_link}" target="_blank">{$item.docs_link}</a></div><br />
+		<div class="lbl">Дата публикации:</div>	<div class="data">&nbsp;{$item.date_publ}</div><br />
+		<div class="lbl">Срок подачи заявок:</div><div class="data">&nbsp;{$item.srok_podachi}</div><br />
+		<div class="lbl">Дата проведения:</div><div class="data">&nbsp;{$item.date_provedenia}</div><br />
+
+		<div class="lbl">Наименование предмета закупки:</div><div class="data">&nbsp;{$item.zakaz_name}</div><br />
+		<div class="lbl">ОКДП:</div><div class="data">&nbsp;{$item.okato}</div><br />
+		<div class="lbl">Способ закупки:</div><div class="data">&nbsp;{$item.type}</div><br />
+
+		<div class="lbl">Наименование заказчика:</div><div class="data">&nbsp;{$item.customer}</div><br />
+		<div class="lbl">Субъект РФ заказчика:</div><div class="data">&nbsp;{$item.region}</div><br />
+		<div class="lbl">Сумма контракта:</div><div class="data">&nbsp;{$item.first_price} руб.</div><br />
+		<div class="lbl">Обеспечение заявки:</div><div class="data">&nbsp;{$item.summ_zayavka} </div><br />
+		<div class="lbl">Обеспечение контракта:</div><div class="data">&nbsp;{$item.summ_contract}</div><br />
+
+		<br />
+

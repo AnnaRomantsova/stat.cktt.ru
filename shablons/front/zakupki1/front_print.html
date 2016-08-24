@@ -1,0 +1,84 @@
+<div class="page-in lenta">
+   <div class="lenta-info" >
+    <h3 >Позиции план-графиков<br>
+закупок товаров, работ для обеспечения государственных и муниципальных нужд</h3>
+	Кол-во записей: [%cnt%] <br /><br />
+    [%no_sub/{По Вашему запросу ничего не найдено}%]
+    <br>
+	[%tbl/{
+	<table width="930"  border="1" cellspacing="0" cellpadding="2" class="tables">
+	 <thead >
+
+	  <tr style="background-color: #CFE2F3">
+		<td width="30">[%./number_arr%]№ п/п</td> 
+    <td width="130">Наименование заказчика</td>    
+		<td width="130">Наименование предмета контракта</td>
+		<td width="110" style="word-wrap: break-word;">[%./contractMaxPrice_arr%]<a href="/zakupki/orderBy/contractMaxPrice/orderType/[%./contractMaxPrice_ord%]" class='under_line'>Ориентировочная начальная (максимальная) цена контракта (рублей)</a></td>
+		<td width="130">Условия финансового обеспечения исполнения контракта (включая размер аванса)</td>
+		<td width="50">[%./purchasePlacingTerm_arr%]<a href="/zakupki/orderBy/purchasePlacingTerm/orderType/[%./purchasePlacingTerm_ord%]" class='under_line'>Срок размещения заказа (мес., год)</a></td>
+		<td width="50">[%./contractExecutionTerm_arr%]<a href="/zakupki/orderBy/contractExecutionTerm/orderType/[%./contractExecutionTerm_ord%]" class='under_line'>Срок исполнения контракта (мес., год)</a></td>
+		<td width="90">Способ размещения заказа</td>
+		<td width="70">Обоснование внесение изменений</td>
+		<td width="70">Дата публикации позиции план-графика</td>
+        <td width="70">Версия план-графика</td>
+		<td width="70"></td>
+      </tr>
+	 </thead>
+	 }%]
+	[%sub/{
+	 <tr id="row[%position_id%]"  >
+		<td> [%ppnum%]</td>
+    <td>[%customer_fullName%]</td>
+		<td >[%contractSubjectName%]</td>
+		<td >[%contractMaxPrice%]</td>
+		<td >[%purchaseFinCondition_amount%]/[%contractFinCondition%]/[%advance%]</td>
+       	<td>[%purchasePlacingTerm_month%].[%purchasePlacingTerm_year%]</td>
+		<td >[%contractExecutionTerm_month%].[%contractExecutionTerm_year%]</td>
+		<td >[%placingWay_name%]</td>
+		<td >[%changeReason%]</td >
+		<td >[%publishDate%]</td>
+		<td >[%versionNumber%]</th>
+		<td ><a href="#" id="[%id%]" class="showpodr under_line">Подробнее</a></td>
+
+	  </tr>
+	 
+
+	}%]
+	[%tbl/{<tr id="row[%id%]">
+		<td colspan = "2" align=right><b>ИТОГО</b></td>
+		<td ></td>
+        <td><b>[%./itogo_contractMaxPrice%]</b></td> 
+         <td></td> 
+         
+         <td></td> 
+          <td></td>
+           <td></td>
+          <td></td>
+           <td></td>
+            <td></td>
+             <td></td>
+
+	  </tr> }%]
+	[%tbl/{</table><br /> }%]
+
+
+
+
+	<a class="ok" id="pdr" href="#podr"></a>
+	<div style="display:none; ">
+	  <div id="podr">
+		<div id="podrcont"></div>
+	  </div>
+	</div>
+
+	<a class="ok" id="tendform" href="#tender_form"></a>
+	<div style="display:none;">
+	  <div id="tender_form">
+		<div id="tender_form_cont"></div>
+	  </div>
+	</div>
+
+   </div>
+</div>
+    <div style="opacity: 0.3; display: none; width:350px; height:350px;" id="ajax_overlay; "></div>
+<div style="left: 48%; top: 48%; display: none;  width:350px; height:350px;"  class="ajax_loading" id="ajax_loading"><div></div></div>

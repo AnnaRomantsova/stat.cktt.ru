@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+        <head>
+               <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+               <title>[%title%]</title>
+                <meta name="Description" content="[%description%]" />
+                <meta name="Keywords" content="[%keywords%]" />
+
+                <meta charset="UTF-8">
+
+                <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+                <link rel="stylesheet" href="/_css/style.css">
+
+                <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+                 <!-- <script type='text/javascript' src='/_js/jquery-1.6.2.min.js'></script> -->
+
+               <script src="/_js/jquery-1.8.3.min.js"></script>
+
+                <script src="/_js/jquery.icheck.min.js"></script>
+
+                <script src="/_js/jquery.reveal.js"></script>
+                <script src="/_js/jquery.core-ui-select.js"></script>
+                <script src="/_js/jscrollpane/jquery.mousewheel.js"></script>
+                <script src="/_js/jscrollpane/jquery.jscrollpane.min.js"></script>
+                <script type='text/javascript' src='/_js/function.js'></script>
+                <script type="text/javascript" src="/_js/jquery.form.js"></script>
+               <script src="/_js/main.js"></script>
+                <script src="/_js/jquery-ui-1.10.3.custom.min.js"></script>
+                <script language="JavaScript" type="text/javascript">
+                        document.onkeyup = function (e) {
+
+                            e = e || window.event;
+                            if (e.keyCode === 13) {
+                                var el = document.getElementById('block-enter');
+                                if (el.style.visibility == 'visible') submit_forms('enter_form');
+
+                                var el = document.getElementById('block-registration');
+                                if (el.style.visibility == 'visible') go_register();
+
+                            }
+                            return false;
+                        }
+                </script>
+
+
+        </head>
+
+        <body>
+
+                <div class="page-wr">
+
+                        <header class="header clearfix ">
+
+                                <hgroup class="hgroup">
+
+                                       <h1 class="logo"><a href="/">План-график <span class="color-1">Ростовской</span><span class="color-2"> области</span></a></h1>
+                                        <h2 class="subtitle">Статистика </h2>
+
+
+                                </hgroup>
+
+                                <div class="city">
+                                   [%section1/[]%]
+                                </div>
+
+                                [%section2/[]%]
+
+                                <div id="block-enter" class="reveal-modal">
+                                 <form action="/auth" method="post" id = 'enter_form'>
+                                        <h5 class="title-popap">Здравствуйте!</h5>
+                                        <input type="hidden" name='log_in' value="1">
+                                        <div class="line-edit">
+                                                <input type="text" name='email' placeholder="E-mail" >
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="password" name="password" placeholder="Пароль" >
+                                        </div>
+
+                                        <a href="/auth/forgot/1" class="forgot-password">Забыли пароль?</a>
+
+                                        <div class="action-link">
+                                                <a href="#" class="btn-yes" onclick="submit_forms('enter_form')">Войти</a>
+                                        </div>
+                                  </form>
+                                </div>
+
+                                <div id="block-registration" class="reveal-modal">
+                                   <form action="/auth" method="post" id = 'reg'>
+                                      <input type="hidden" name='register' value="1">
+                                        <h5 class="title-popap">Регистрация</h5>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="E-mail" name='email'>
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="text" placeholder="Имя и фамилия" name='fio'>
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="password" placeholder="Пароль" name='pass1'>
+                                        </div>
+
+                                        <div class="line-edit">
+                                                <input type="password" placeholder="Повторите пароль" name='pass2'>
+                                        </div>
+                                        <div class="line-edit">
+                                             <input type="checkbox" value="1" id="lic_ch" checked onclick="license(this);">
+                                              Я согласен с условиями <a href="/userguide">Пользовательского соглашения</a>
+
+                                         </div>
+                                        <div class="action-link">
+                                                <a href="#" class="btn-yes" id="regbut" onclick="go_register();">Регистрация</a>
+                                        </div>
+                                    </form>
+                                  </div>
+
+
+                        </header>
+
+                        <nav class="nav">
+                                        [%menu_main/[]%]
+                        </nav>
+
+                        <section class="variable-part ">
+
+                                <aside class="menu">
+
+                                       [%menu_user/[]%]
+                                       [%section3/[]%]
+
+
+                                </aside>
+
+                                <article class="page-cont one-col">
+                                        [%main_section/[]%]
+                                </article>
+
+                        </section>
+
+                        <footer class="footer">
+
+                                <ul class="footer-nav">
+                                       [%menu_buttom/[]%]
+                                        <span class='vk'>
+								            <a href="http://vk.com/ckttrostov"><img src="/i/vk.png" /></a>
+								            <a href="http://www.facebook.com/CKTT.RU"><img src="/i/face.png" /></a>
+								            <a href="https://twitter.com/cktt2012"><img src="/i/twitter.png" /></a>
+                                       <!-- mibew button --><a href="/webmin/client.php?locale=ru" target="_blank" onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 &amp;&amp; window.event.preventDefault) window.event.preventDefault();this.newWindow = window.open(&#039;/webmin/client.php?locale=ru&amp;url=&#039;+escape(document.location.href)+&#039;&amp;referrer=&#039;+escape(document.referrer), 'mibew', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window;return false;"><img src="/webmin/b.php?i=mibew&amp;lang=ru" border="0" width="163" height="61" alt=""/></a><!-- / mibew button -->
+								</span>
+                                </ul>
+
+                                <div class="footer-write">
+                                        <a href="/feedb">Подписка на рассылку</a>   <br><br>
+                                        <!--LiveInternet counter--><script type="text/javascript"><!--
+										document.write("<a href='http://www.liveinternet.ru/click' "+
+										"target=_blank><img src='//counter.yadro.ru/hit?t14.1;r"+
+										escape(document.referrer)+((typeof(screen)=="undefined")?"":
+										";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+										screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+										";"+Math.random()+
+										"' alt='' title='LiveInternet: показано число просмотров за 24"+
+										" часа, посетителей за 24 часа и за сегодня' "+
+										"border='0' width='88' height='31'><\/a>")
+										//--></script><!--/LiveInternet-->
+                                </div>
+
+
+                                <p class="footer-copy">&copy; ЦКТТ 2012</p>
+                              
+
+                        </footer>
+
+                </div>
+
+        </body>
+
+</html>

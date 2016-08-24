@@ -1,0 +1,68 @@
+<div class="page-in lenta">
+   <div class="lenta-info" >
+    <h3 >Размещение план-графиков</h3>
+	Кол-во записей: [%cnt%] <br /><br />
+    [%no_sub/{По Вашему запросу ничего не найдено}%]
+    <br>
+	
+	[%tbl/{
+	<table width="930"  border="1" cellspacing="0" cellpadding="2" class="tables">
+	 <thead >
+
+	  <tr style="background-color: #CFE2F3">
+		<td width="20">№ п/п</td>
+		<td width="300">Наименование заказчика</td>
+		<td width="50">Номер версии</td>
+		<td width="120" style="word-wrap: break-word;">Дата утрвеждения</td>
+		<td width="120">Дата публикации</td>
+		<td width="140">Реестровый номер</td>
+		<td  width="30">Количество позиций</td>
+		<td width="80">Всего закупок, планируемых в текущем году, руб.</td>
+      </tr>
+	 </thead>
+	 }%]
+	[%sub/{
+	 <tr id="row[%position_id%]"  >
+		<td >[%ppnum%]</td>
+		<td >[%customer_fullName%]</td>
+		<td >[%versionNumber%]</td>
+		<td >[%confirmDate%]</td>
+		<td >[%publishDate%]</td>
+		<td >[%planNumber%]</td>
+		<td >[%cnt_pos%]</th>
+		<td >[%sumPaymentsTotal%]</td>
+
+	  </tr>
+
+	}%]
+	[%tbl/{<tr id="row[%id%]">
+		<td colspan = "2" align=right><b>ИТОГО</b></td>
+		<td ><b></b></td>
+        <td></td>
+         <td></td>
+          <td></td>
+           <td></td>
+            <td>[%./itogo_sumPaymentsTotal%]</td>
+
+	  </tr> }%]
+	[%tbl/{</table><br /> }%]
+
+
+	<a class="ok" id="pdr" href="#podr"></a>
+	<div style="display:none; ">
+	  <div id="podr">
+		<div id="podrcont"></div>
+	  </div>
+	</div>
+
+	<a class="ok" id="tendform" href="#tender_form"></a>
+	<div style="display:none;">
+	  <div id="tender_form">
+		<div id="tender_form_cont"></div>
+	  </div>
+	</div>
+
+   </div>
+</div>
+    <div style="opacity: 0.3; display: none; width:350px; height:350px;" id="ajax_overlay; "></div>
+<div style="left: 48%; top: 48%; display: none;  width:350px; height:350px;"  class="ajax_loading" id="ajax_loading"><div></div></div>

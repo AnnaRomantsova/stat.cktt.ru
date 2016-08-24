@@ -1,0 +1,67 @@
+<div class="page-in lenta">
+   <div class="lenta-info" >
+    <h3 >Итоговые показатели</h3>
+    [%no_sub/{По Вашему запросу ничего не найдено}%]
+    <br>
+	[%tbl/{
+	<table width="930"  border="1" cellspacing="0" cellpadding="2" class="tables">
+	 <thead >
+
+	  <tr  style="background-color: #CFE2F3">
+            <td   rowspan="3"  width="43" height="19" align="LEFT" valign="middle" >№ п/п </td>
+            <td  rowspan="3" width="297" align="CENTER" valign="middle" ><b>Наименование заказчика</b></td>
+            <td  colspan="4" width="412" align="CENTER" valign="BOTTOM" ><b>Совокупный годовой объем закупок</b></td>
+            <td  rowspan="3" width="140" align="CENTER" valign="MIDDLE" ><b>Размер выплат по исполнению <br />
+            контрактов в текущем году</b></td>
+            <td  rowspan="3" width="126" align="CENTER" valign="MIDDLE" ><b>Всего закупок, планируемых в текущем году, руб.</b></td>
+        </tr>
+        <tr  style="background-color: #CFE2F3">
+
+            <td  rowspan="2" align="CENTER" valign="MIDDLE" ><b>СМП и СОНО</b></td>
+            <td  rowspan="2" align="CENTER" valign="MIDDLE" ><b>Запрос котировок</b></td>
+            <td  colspan="2" align="CENTER" valign="MIDDLE" ><b>Закупка у единственного поставщика</b></td>
+        </tr>
+        <tr  style="background-color: #CFE2F3">
+            <td  align="CENTER" valign="MIDDLE" ><b>пункт 4 ст. 93</b></td>
+            <td  align="CENTER" valign="MIDDLE" ><b>пункт 5 ст. 93</b></td>
+        </tr>
+	 </thead>
+	 }%]
+	[%sub/{
+	 <tr id="row[%position_id%]"  >
+		<td >[%ppnum%]</td>
+		<td >[%customer_fullName%]</td>
+		<td >[%sumPushaseSmallBusiness%]</td>
+		<td >[%sumPushaseRequest%]</td>
+    <td >[%sumPushaseSingleSupplier4%]</td>
+	  <td >[%sumPushaseSingleSupplier5%]</td>
+	  <td >[%sumContractMaxPrice%]</td>
+		<td >[%sumPaymentsTotal%]</td>
+	  </tr>
+
+	}%]
+	[%tbl/{<tr id="row[%id%]">
+		<td colspan = "2" align=right><b>ИТОГО</b></td>
+		<td ><b>[%./sumPushaseSmallBusiness%]</b></td>
+        <td>[%./sumPushaseRequest%]</td>
+         <td>[%./sumPushaseSingleSupplier4%]</td>
+          <td>[%./sumPushaseSingleSupplier5%]</td>
+           <td>[%./sumContractMaxPrice%]</td>
+          <td>[%./sumPaymentsTotal%]</td>
+           <td></td>
+            <td></td>
+             <td></td>
+              <td></td>
+              <td></td>
+
+	  </tr> }%]
+	[%tbl/{</table><br /> }%]
+
+
+
+	
+
+   </div>
+</div>
+    <div style="opacity: 0.3; display: none; width:350px; height:350px;" id="ajax_overlay; "></div>
+<div style="left: 48%; top: 48%; display: none;  width:350px; height:350px;"  class="ajax_loading" id="ajax_loading"><div></div></div>

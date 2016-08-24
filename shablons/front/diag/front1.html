@@ -1,0 +1,51 @@
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+ <link rel="stylesheet" href="/_css/diag.css">
+
+<h3>Общая стоимость запланированных заказов в разрезе ГРБС, тыс. руб. </h3>
+
+  <div id="bar1"></div>
+
+  <h3>Кол-во заказчиков (ПБС), разместивших план-графики</h3>
+
+    <div id="bar2"></div>
+  <h3>Стоимость контрактов в разрезе ОКПД, тыс. руб. </h3>
+
+    <div id="bar3"></div>
+
+<script>
+Morris.Bar({
+  element: 'bar1',
+  data: [
+    [%d1/{  { label: '[%name%]', value: [%summ%] },       }%]
+  ],
+  xkey: 'label',
+  ykeys: ['value'],
+  //barColors : ['#DCC73B'],
+  labels: ['Стоимость заказов по ПГ, тыс. руб']
+});
+
+Morris.Bar({
+  element: 'bar2',
+  data: [
+    [%d2/{  { label: '[%name%]', value: [%cnt%] },       }%]
+  ],
+  xkey: 'label',
+  ykeys: ['value'],
+  barColors : ['#187D01'],
+  labels: ['Кол-во ПБС']
+});
+
+Morris.Bar({
+  element: 'bar3',
+  data: [
+    [%d3/{  { label: '[%name%]', value: [%cnt%] },       }%]
+  ],
+  xkey: 'label',
+  ykeys: ['value'],
+  barColors : ['#B6520F'],
+  labels: ['Сумма по ОКПД']
+});
+</script>

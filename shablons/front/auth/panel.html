@@ -1,0 +1,29 @@
+<div class="h-user">
+[%log/{
+   <div class="h-user-menu" id="h-user-menu">
+         <div class="h-user-name">
+            <a href="#" id="toggle-menu"><span>[%./fio%]</span> <i class="icon-h-user"></i></a>
+         </div>
+
+         <ul class="h-user-link">
+             <li><a href="/lk">Мой профиль</a></li>
+             <li><a href="/settings">Настройки</a></li>
+             <li><a href="/auth/exit/1">Выход</a></li>
+         </ul>
+    </div>
+     <div class="h-user-more-link">
+       <!-- <a href="/zakaz_my"><span>Мои заявки</span></a>
+        <a href="/messages"><span>Мои сообщения</span> <sup>[%./cnt%]</sup></a>
+        -->
+    </div>
+
+}%]
+[%not_log/{
+ <div class="h-user">
+  <ul class="no-login">
+    <li><a href="#" id="link-enter">Вход</a></li>
+    <li><a href="#" id="link-registration">Регистрация</a></li>
+  </ul>
+ </div>
+}%]
+</div>

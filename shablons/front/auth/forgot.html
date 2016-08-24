@@ -1,0 +1,22 @@
+<div class="page-in page-settings">
+      <h4 class="page-title">Восстановление пароля</h4>
+      <form action="/auth" method="post" id="restore_form">
+     <input type="hidden" name="repair"/>
+
+      [%message/{
+            <h3 class="page-title" style="color:red">
+             [%./message%]
+           </h3>
+      }%]
+
+      <div class="line-edit clearfix">
+              <label for="" class="description-field">E-mail</label>
+              <input type="text" class="long-input" name="email" value="[%email%]" placeholder='Введите E-mail'>
+      </div>
+
+     
+      <div class="action-link">
+              <a href="#" class="btn-yes" onclick="submit_forms('restore_form')">Восстановить</a>
+      </div>
+      </form>
+</div>

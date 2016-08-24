@@ -1,0 +1,22 @@
+<!-- tsjnews ITEM -->
+   <div class="page-in lenta">
+      <form action='/tests' id='next_form'  method="post" >
+       <input type="hidden" name="i" value="[%next%]">
+       <input type="hidden" name="quest_id" value="[%quest_id%]">
+       <input type="hidden" name="test_id" value="[%test_id%]">
+        <h3 class="title-post">[%question%]</h3>
+        <div class="lenta-info">
+        [%sub/{
+               <input type="radio" name="ans" id="ans_radio" onclick="dalee();" value="[%id%]"/> [%name%]<br><br>
+        }%]
+        </div>
+         [%next/{<a href="#" onclick="submit_dalee('next_form');" id="dalee" class="btn-no">Далее</a>}%]
+
+      </form>
+
+  </div>
+<!-- /tsjews ITEM -->
+
+
+
+

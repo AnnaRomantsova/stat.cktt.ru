@@ -1,0 +1,23 @@
+<div class="page-in page-settings">
+      <h4 class="page-title">Создание профиля мастера</h4>
+      <form action="/settings" method="post" id="set_form">
+     <input type="hidden" name="save" value="1"/>
+
+
+            <div class="err_message">
+               [%text%]
+             </div><br><br>
+             <div class="line-edit">
+                     <input type="checkbox"  value="1" onclick="license1(this);">&nbsp;Я согласен с условиями размещения информации</p>
+                      <p class='input' style="display:none;" id="lic1"><br>
+                        <textarea name="text"  rows="50" cols="70" >[%license%]</textarea>
+                      </p>
+             </div>
+
+
+
+         <div class="action-link">
+                     <a href="/lk/edit/1/master/1"  class="btn-no" id="regbut1" onclick="go_register();" >Далее</a>
+         </div>
+
+</div>

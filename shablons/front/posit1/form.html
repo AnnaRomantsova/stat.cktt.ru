@@ -1,0 +1,45 @@
+<html>
+        <head>
+               <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+         </head>
+   <script>
+   function form_submit(name)
+   {
+      var f = document.forms[name];
+      f.submit();
+      return false;
+   }
+
+   function check(name)
+   {
+      var f = document.forms[name];
+
+      if (val(f,new Array([%fieldsWithoutFail%])) ==true )
+         form_submit(name);
+
+   }
+</script>
+    <script src="/_js/func_validFields.js"></script>
+
+	<h1>Подготовка заявки на участие в закупке № [%id%]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+     <a href="#" onclick="$.fancybox.close();return false;" class="right" style="margin:-20px -10px 0 0;"><img src="/i/x.gif"></a>
+     <br>
+    <p style="font-size:14px;">[%content%]</p> <br><br>
+<div class='obrSvyaz' id="subpodryad">
+                        <form method="post" name='regesty'  action="/zakupki">
+
+                            <p style="color:red;">
+
+                            </p>
+                            <input  type='hidden' name="send_zayav" value="1" />
+                            <p>Email:</p><input type='text' name="email" value="[%email%]" />
+                            <p>Контактное лицо:</p><input class="l2" type='text' name="name" value="[%name%]" />
+                            <p>Телефон:</p><input type='text' name="phone" value="[%phone%]" />
+                           <input  type='hidden' name="num" value="[%id%]" />
+                             <p>Вычислите 12 + 11 =:</p><input class="l2" type='text' name="kod" value="[%kod%]" />
+                            <p align='center'>
+                           <input type="submit" class="button" value="Отправить"  class="btn-no"></p>
+                        </form>
+</div>
+
+</html>

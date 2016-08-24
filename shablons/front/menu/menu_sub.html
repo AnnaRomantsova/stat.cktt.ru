@@ -1,0 +1,54 @@
+<!-- MENU SUB -->
+<script>
+     $(document).ready(function () {
+
+             $(".transform-select").coreUISelect();
+
+             $("#list-special").jScrollPane({
+                     'mouseWheelSpeed':'20',
+                     'stickToBottom':'true',
+                     'verticalDragMaxHeight':'66'
+             });
+
+     });
+
+
+</script>
+
+
+ <aside class="menu">
+<h4 class="menu-title" >Фильтр</h4>
+<form action='/master' method='get' id='search_form'>
+<ul class="menu-list1 mu">
+ <li>
+     <span><b>Город:</b></span>
+        <select name="id_city" id="city" class="long-select transform-select">
+              <option value="0">Все города</option>
+              [%city/{  <option value="[%id%]" [%selected%] >[%name%]</option> }%]
+         </select>
+  </li>
+
+    <span><b>Законы:</b></span>
+    [%zakon/{  <div> <a href="#" name="href_top[%id%]"><input type="checkbox" id='[%id%]' name='zakon[%id%]' [%checked%] ><span> [%name%]</span> </a>  </div>}%]
+   <li></li>
+  <li>
+     <span><b>Виды услуг:</b></span>
+    [%service/{ <div><a href="#" name="href_top[%id%]"><input type="checkbox" id='[%id%]' name='service[%id%]' [%checked%] ><span> [%name%]</span> </a> </div>}%]
+  </li>
+ <ul class="part-list1">
+   <li >
+     <div class="line-edit transform-select-wr for-short-select clearfix">
+        <span><b>ФИО:</b></span><br><a href="#" name=""><input type="text" class="short-text" maxlength='25'  name='word' > </a>
+      </div>
+   </li>
+</ul>
+
+
+<div class="action-link" style="margin-top:20px;">
+             <a href="#" class="btn-yes" onclick="submit_forms('search_form')">Поиск</a>
+ </div>
+</form>
+</aside>
+<!-- /MENU SUB -->
+
+

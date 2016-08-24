@@ -1,0 +1,63 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type="text/javascript">
+        include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js','/_js/func_validFields.js'));
+</script>
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       &nbsp;&nbsp;Почтовая рассылка</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br />
+
+
+<form action="?save" method="post" enctype="multipart/form-data" onsubmit="return val(this,new Array('tema','text'));">
+<table cellspacing="3" class="form">
+   <tr><td></td><td width="100%"></td></tr>
+   <tr><td>Тема письма*</td>
+                <td><input type="text" name='tema'  size="30" maxlength="30" class='textinput' />
+                </td>
+        </tr>
+
+      <tr><td>Пользователи</td>
+       <td><select name="is_master">
+
+              <option value="-1" >Все</option>
+              <option value="1" >Мастера</option>
+              <option value="0" >Заказчики</option>
+
+           </select>
+   </td></tr>
+
+
+   <tr><td style="padding-top:5px;" colspan="2">Текст письма:*</td></tr>
+   <tr><td style="padding-top:5px;" colspan="2">
+    <input type="hidden" id="text" name="text" value="">
+    <input type="hidden" id="text___Config" value="" style="display:none" />
+
+   <iframe id="text___Frame" src="/fckeditor/editor/fckeditor.html?InstanceName=text&amp;Toolbar=Default" width="720" height="300" frameborder="0" scrolling="no"></iframe>
+  
+   </td></tr>
+</table>
+
+<br /><br />
+
+[%addRss/[]%]
+<br /><br />
+<input type='submit' value='Отправить' name="send" >&nbsp;&nbsp;
+<input type='button' value='Отмена'  onclick="location.href='?[%edit/{id_back=[%./id%]}%]';">
+<br><br><br>
+[%message%]
+</form>
+</body>
+</html>
+
+

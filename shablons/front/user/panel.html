@@ -1,0 +1,208 @@
+<script>
+     $(document).ready(function () {
+
+             $(".transform-select").coreUISelect();
+
+             $("#list-special").jScrollPane({
+                     'mouseWheelSpeed':'20',
+                     'stickToBottom':'true',
+                     'verticalDragMaxHeight':'66'
+             });
+
+     });
+
+ function form_submit(id,val_name,formname)  {
+      //alert(id);
+     var elementi = document.getElementsByName(val_name);
+     var length = elementi.length;
+     for (var i = 0; i < length; i++) {
+         elementi[i].value= id;
+     }
+
+    var form = document.getElementById(formname);
+    // alert(form);
+    form.submit();
+ }
+</script>
+
+<script src="/_js/func_validFields.js"></script>
+<script>
+   function frof_form_submit(name)
+   {
+      var f = document.forms[name];
+      f.submit();
+      return false;
+   }
+
+   function ch_box_check()
+   {
+      var fl=false;
+      jQuery(".list-special :checkbox").each(function() {
+          if (jQuery(this).attr("checked") == 'checked') {
+               fl = true;
+
+          }
+      })
+
+      if (fl==false ) {
+          alert ('Выберите пожалуйста специализацию!');
+          return false;
+      } else return true;
+   }
+
+   function check(name)
+   {
+      var f = document.forms[name];
+      //alert(name);
+      if (textlen(f,new Array('fio'[%photo/{,'portfolio_about[%id%]'}%]),30) ==true )
+      // if (textlen(f,new Array('price'),6) ==true )
+    //    if (ch_box_check())
+           if (val(f,new Array('city')) ==true )
+              frof_form_submit(name);
+
+   }
+
+   function check_portfol(name)
+   {
+      var f = document.forms[name];
+      //alert(name);
+      if (textlen(f,new Array('fio'[%photo/{,'portfolio_about[%id%]'}%]),30) ==true )
+        if (ch_box_check())
+           if (val(f,new Array('about','city')) ==true )  {
+              frof_form_submit(name);
+              document.location.href = "/add_photo";
+           };
+   }
+
+
+</script>
+
+
+
+     <form method="POST" name="del_form" id="del_form" action="">
+                 <input type="hidden" id="id" name="id" >
+                 <input type="hidden" name="photo_del" value="1">
+     </form>
+
+     <form method="POST" name="new" id="new" action="">
+                  <input type="hidden" name="new_photo" value="1">
+     </form>
+
+<div class="page-in edit-profile">
+     <h4 class="page-title">Редактирование профиля</h4>
+      [%message/{
+                      <h3 class="page-title" style="color:red">[%./message%]</h3>
+                    }%]
+
+    <form name='lk' id='profile_form' action="" method="post" enctype="multipart/form-data">
+     <input type='hidden' name='save' value='1'>
+     <div class="edit-first clearfix">
+
+
+
+             <div class="edit-name">
+
+                     <label for="">ФИО</label>
+                     <input type="text" class="input-name" name="fio" value='[%fio%]'>
+
+
+
+             </div>
+
+     </div>
+
+     <div class="line-edit transform-select-wr clearfix">
+             <label for="" class="description-field">Город*</label>
+
+             <select name="city" id="city" class="long-select transform-select">
+                      [%city/{
+                            <option value="[%id%]" [%selected%] >[%name%]</option>
+                      }%]
+             </select>
+
+     </div>
+
+     <div class="line-edit transform-select-wr for-short-select clearfix">
+             <label for="" class="description-field">Оплата</label>
+
+             <input type="text" class="short-input" name="price" maxlength='10'  value='[%price%]'>
+             <!--
+             <select name="time" id="" class="transform-select">
+                      [%time/{
+                            <option value="[%id%]" [%selected%] >[%name%]</option>
+                      }%]
+             </select>-->
+     </div>
+
+     <div class="line-edit no-margin clearfix">
+             <label for="" class="description-field">Вид закона*</label>
+             <div style="margin-left:130px">
+               <ul>
+                     [%zakon/{
+                          <li>
+                             <input type="checkbox" id="zakon_razd[%id%]" name="zakon_razd[%id%]" [%checked%] class="transform-check1">
+                             <span>[%name%]</span>
+                          </li>
+                          [%ul%]
+                     }%]
+               </ul>
+             </div>
+     </div>   <br>
+     <div class="line-edit no-margin clearfix">
+             <label for="" class="description-field">Специализация*</label>
+             <div style="margin-left:130px">
+               <ul>
+                     [%service/{
+                          <li>
+                             <input type="checkbox" id="service_razd[%id%]" name="service_razd[%id%]" [%checked%] class="transform-check1">
+                             <span>[%name%]</span>
+
+
+                          </li>
+                          [%ul%]
+                     }%]
+               </ul>
+            </div>
+     </div>
+    <br>
+
+    <!--
+     <div class="line-edit clearfix">
+             <label for="" class="description-field" >О себе*</label>
+
+             <textarea id="" class="long-textarea" name="about">[%about%]</textarea>
+
+             <span class="note limitation">не более 300 символов, не указывайте здесь контакты и ссылки иначе они будут удалены</span>
+     </div>
+     -->
+
+     <h4 class="edit-title">Контакты</h4>
+
+     <div class="line-edit clearfix">
+             <label for="" class="description-field">Телефон</label>
+
+             <input type="text" class="long-input" maxlength='25' name="tel" value='[%tel%]'>
+
+     </div>
+
+     <div class="line-edit clearfix">
+             <label for="" class="description-field">Скайп</label>
+
+             <input type="text" class="long-input" name="skipe" value='[%skipe%]'>
+
+     </div>
+
+     <div class="line-edit clearfix">
+             <label for="" class="description-field">Сайт</label>
+
+             <input type="text" class="long-input" name="link" maxlength='25' value='[%link%]'>
+
+     </div>
+
+
+     <div class="action-link">
+             <a href="#" class="btn-yes" onclick="check('profile_form')">Сохранить</a>
+             <a href="/" class="btn-no">Отменить</a>
+     </div>
+     </form>
+</div>

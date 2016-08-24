@@ -1,0 +1,73 @@
+.tabs {
+	position: relative;
+	margin: 0 auto;
+	width: 1000px;
+  font-size:14px;
+}   
+/*.tabs label*/
+ #tab_l1,#tab_l2,#tab_l3,#tab_l4,#tab_l5,#tab_l6 {
+	color: #555;
+	cursor: pointer;
+	display: block;
+	float: left;
+  font-size:14px;
+	width: 150px;
+	height: 45px;
+	line-height: 45px;
+	position: relative;
+	top: 2px;
+	text-align: center;
+}
+
+/*.tabs input*/
+#tab_1,#tab_2,#tab_3,#tab_4,#tab_5,#tab_6 
+{
+	position: absolute;
+	left: -9999px;
+ 
+}
+
+#tab_1:checked  ~ #tab_l1,
+#tab_2:checked  ~ #tab_l2,
+#tab_3:checked  ~ #tab_l3,
+#tab_4:checked  ~ #tab_l4,
+#tab_5:checked  ~ #tab_l5,
+#tab_6:checked  ~ #tab_l6
+ {
+	background: #fff;
+	border-color: #fff;
+	top: 0;
+	z-index: 3;
+}
+
+.tabs_cont {
+	background: #fff;
+	position: relative;
+	z-index: 2;
+	min-height: 230px;
+}
+
+
+.tabs_cont > div {
+	position: absolute;
+	left: -9999px;
+	top: 0;
+	opacity: 0;
+	-moz-transition: opacity .5s ease-in-out;
+	-webkit-transition: opacity .5s ease-in-out;
+	transition: opacity .5s ease-in-out;
+}
+#tab_1:checked ~ .tabs_cont #tab_c1,
+#tab_2:checked ~ .tabs_cont #tab_c2,
+#tab_3:checked ~ .tabs_cont #tab_c3,
+#tab_4:checked ~ .tabs_cont #tab_c4,
+#tab_5:checked ~ .tabs_cont #tab_c5,
+#tab_6:checked ~ .tabs_cont #tab_c6 {
+	position: static;
+	left: 0;
+	opacity: 1;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.zakup_table{margin-left:30px; margin-bottom:30px;}

@@ -1,0 +1,91 @@
+<html>
+        <head>
+               <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+               <link rel="stylesheet" href="/_css/style.css">
+         </head>
+	<a href="#" onclick="$.fancybox.close();return false;" class="right" style="margin:-20px -10px 0 0;"><img src="/i/x.gif"></a>
+     <br>
+
+	   <div class="top">Сведения о ГРБС:</div>
+       <table class="podr_table" width=70%>
+            <tr><td class="tbl_td" width="200">Наименование:</td><td width="300">[%name_grbs%]</td></tr>
+            <tr><td class="tbl_td">ИНН:</td> <td >[%inn_grbs%]</td></tr>
+       </table>
+        <br><div class="top">Сведения о заказчике:</div>
+       <table class="podr_table" width=70%>
+            <tr><td class="tbl_td" width="200">Наименование:</td><td width="300">[%name_pbs%]</td></tr>
+            <tr><td class="tbl_td">ИНН:</td><td>[%inn_pbs%]</td></tr>
+             <tr><td class="tbl_td">ОКТМО:</td><td >[%oktmo_code%] [%oktmo_name%]        </td></tr>
+         <tr><td class="tbl_td">Телефон/факс:</td><td>[%responsible_fax%]</td></tr>
+            <tr><td class="tbl_td">Адрес электронной почты:</td><td>[%responsible_email%]</td></tr>
+       </table>
+      <br> <div class="top">Сведения о план-графике:</div>
+          <table class="podr_table" width=70%>
+            <tr><td class="tbl_td" width="200">№ плана-графика:</td><td width="300">&nbsp;[%planNumber%]</td></tr>
+		    <tr><td class="tbl_td">Версия плана-графика:</td><td>&nbsp;[%versionNumber%]</td></tr>
+		    <tr><td class="tbl_td">Дата утверждения плана-графика:</td><td>&nbsp;[%confirmDate%]</td></tr>
+		    <tr><td class="tbl_td">Дата публикации плана-графика:</td><td>&nbsp;[%publishDate%]</td></tr>
+         </table>
+        <br><div class="top">Сведения о позиции плана-графика:</div>
+          <table class="podr_table" width=70% border="1">
+                 <tr><td class="tbl_td" width="200">№ позиции в план-графике:</td><td width="300">&nbsp;[%positionNumber%]</td></tr>
+                 <tr><td class="tbl_td">Дата публикации позиции плана-графика:</td><td>&nbsp;[%positionPublishDate%]</td> </tr>
+				 <tr><td class="tbl_td">КБК:</td><td>&nbsp;[%kbk_code%]</td> </tr>
+				 <tr><td class="tbl_td">КОСГУ:</td><td>&nbsp;[%first_price%]</td></tr>
+				 <tr><td class="tbl_td">ОКВЭД:</td><td>&nbsp;[%OKVED_code%]-[%OKVED_name%] </td></tr>
+				 <tr><td class="tbl_td">Предмет контракта:</td><td>&nbsp;[%contractSubjectName%] </td></tr>
+				 <tr><td class="tbl_td">Ориентировочная НМЦК (руб.):</td><td>&nbsp;[%contractMaxPrice%] </td></tr>
+				 <tr><td class="tbl_td">Размер выплат в текущем году исполнения контракта:</td><td>&nbsp;[%payments%] </td></tr>
+				 <tr><td class="tbl_td">Сведения о проведении совместных торгов:</td><td>&nbsp;[%%]</td> </tr>
+				 <tr><td class="tbl_td">Основание внесения изменений в позицию плана-графика:</td><td>&nbsp;</td></tr>
+				 <tr><td class="tbl_td">Закупка не подлежит обязательному общественному обсуждению в соответствии с п.1.4 Приказа Минэкономразвития от 10.10.2013 г. № 578:</td><td>&nbsp;</td></tr>
+        </table>
+         <br><div class="top">Сведения о товарах, работах, услугах:</div>  <br>
+        <table width="400"  border="1" cellspacing="0" cellpadding="2" class="tables">
+		 <thead style="background-color: #F8E8CB;">
+		     <tr style="background-color: #F8E8CB;">
+				<td width="120">Наименование ТРУ</td>
+				<td width="120">Минимальные требования</td>
+				<td width="130" style="word-wrap: break-word;">ОКПД</a></td>
+				<td width="40">Ед.изм</td>
+				<td width="30">Кол-во</td>
+				<td  width="50">Цена за ед.изм</td>
+				<td width="50">Сумма</td>
+			 </tr>
+		 </thead>
+        [%prod/{
+			   <tr >
+				<td width="90">[%name%] </td>
+				<td width="130">[%minRequirement%]</td>
+				<td width="110" style="word-wrap: break-word;">[%okpd_code%]-[%okpd_name%]</a></td>
+				<td width="140">[%%]</td>
+				<td width="180">[%quantity%]</td>
+				<td  width="50">[%price%]</td>
+				<td width="50">[%summax%]</td>
+			   </tr>
+        }%]
+       </table>  <br>
+      <table>
+         <tr><td class="tbl_td">Способ размещения заказа:</td><td>&nbsp;[%placingWay_name%] </td></tr>
+         <tr><td class="tbl_td">Срок размещения заказа:</td><td>&nbsp;[%purchasePlacingTerm_month%].[%purchasePlacingTerm_year%] </td></tr>
+		 <tr><td class="tbl_td">Срок исполнения контракта:</td><td>&nbsp;[%contractExecutionTerm_month%].[%contractExecutionTerm_year%]</td></tr>
+		 <tr><td class="tbl_td">Основание внесения изменений в позицию плана-графика:</td><td>&nbsp;[%minRequirement%] </td></tr>
+      </table>
+      <br> <div class="top">Условия закупки</div>  <br>
+      <table>
+         <tr><td class="tbl_td">Условия финансового обеспечения заявки:</td><td>&nbsp;[%purchaseFinCondition_amount%] </td></tr>
+         <tr><td class="tbl_td">Условия финансового обеспечения исполнения контракта:</td><td>&nbsp;[%sumPushaseSingleSupplier5%] </td></tr>
+         <tr><td class="tbl_td">Преимущества участникам закупки:</td><td>[%pref/{[%code%] [%name%]}%] </td></tr>
+         <tr><td class="tbl_td">Требования к участникам закупки:</td><td>[%req/{[%code%] [%name%]}%] </td></tr>
+      </table>
+       <br><div class="top">Итоговые показатели план-графика</div>  <br>
+      <table>
+         <tr><td class="tbl_td">Совокупный объем закупок у единственного поставщика в соответствии с п. 4 части 1 статьи 93 Федерального закона №44-ФЗ:</td><td width = '50'>&nbsp;[%sumPushaseSingleSupplier4%] </td></tr>
+         <tr><td class="tbl_td">Совокупный объем закупок у единственного поставщика в соответствии с п. 5 части 1 статьи 93 Федерального закона №44-ФЗ:</td><td>&nbsp;[%sumPushaseSingleSupplier5%] </td></tr>
+         <tr><td class="tbl_td">Совокупный объем закупок у субъектов малого предпринимательства, социально ориентированных некоммерческих организаций:</td><td>&nbsp;[%sumPushaseSmallBusiness%] </td></tr>
+         <tr><td class="tbl_td">Совокупный объем закупок, осуществляемых путем запроса котировок:</td><td>&nbsp;[%sumPushaseRequest%] </td></tr>
+          <tr><td class="tbl_td">Всего закупок, планируемых в текущем году:</td><td>&nbsp;[%sumContractMaxPrice%] </td></tr>
+           <tr><td class="tbl_td">Размер выплат по исполнению контрактов в текущем году:</td><td>&nbsp;[%sumPaymentsTotal%] </td></tr>
+      </table>
+</html>
+

@@ -1,0 +1,26 @@
+
+         <div class="page-in lenta">
+               <h3 class="title-post">Список тестов</h3>
+                <div class="lenta-info">
+                Слушатель: [%fio%] <br>
+
+                        <br><h4>Тестирования:</h4>
+		                <table class='plan_table'>
+		                <tr>
+		                   <th>Название</th>
+		                   <th>Статус</th>
+		                   <th>Результат</th>
+		                   <th></th>
+		 				</tr>
+		                [%sub/{
+		                <tr>
+		                  <td><a href="/tests/s/[%id%]">[%name%]</a></td>
+		                  <td>[%status%]</td>
+		                  <td>[%perc%]</td>
+		 				</tr>
+		                }%]
+		                </table>
+                </div>
+        </div>
+
+

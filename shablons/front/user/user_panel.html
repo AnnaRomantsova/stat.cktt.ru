@@ -1,0 +1,93 @@
+<script>
+     $(document).ready(function () {
+
+             $(".transform-select").coreUISelect();
+
+             $("#list-special").jScrollPane({
+                     'mouseWheelSpeed':'20',
+                     'stickToBottom':'true',
+                     'verticalDragMaxHeight':'66'
+             });
+
+     });
+
+ function form_submit(id,val_name,formname)  {
+      //alert(id);
+     var elementi = document.getElementsByName(val_name);
+     var length = elementi.length;
+     for (var i = 0; i < length; i++) {
+         elementi[i].value= id;
+     }
+
+    var form = document.getElementById(formname);
+    // alert(form);
+    form.submit();
+ }
+</script>
+
+     <form method="POST" name="del_form" id="del_form" action="">
+                 <input type="hidden" id="id" name="id" >
+                 <input type="hidden" name="photo_del" value="1">
+     </form>
+
+     <form method="POST" name="new" id="new" action="">
+                  <input type="hidden" name="new_photo" value="1">
+     </form>
+<div class="search-create">
+
+         <div class="action-link">
+                 <a href="/lk/lic/1" class="btn-yes" style="width:350px;">+ Создать профиль мастера</a>
+         </div>
+
+
+ </div>
+<div class="page-in edit-profile">
+     <h4 class="page-title">Редактирование профиля</h4>
+
+      [%message/{
+                      <h3 class="page-title" style="color:red">[%./message%]</h3>
+                    }%]
+    <form name='lk' id='profile_form' action="" method="post" enctype="multipart/form-data">
+     <input type='hidden' name='save' value='1'>
+     <div class="line-edit no-margin clearfix">
+
+
+             <div class="edit-name" style="margin: 0 0 33px 10px;">
+
+                     <label for="">ФИО</label>
+                     <input type="text" class="input-name" name="fio" value='[%fio%]'>
+
+
+
+             </div>
+
+     </div>
+
+     <div class="line-edit transform-select-wr clearfix">
+             <label for="" >Город</label>
+
+             <select name="city" id="city" class="long-select transform-select">
+                      [%city/{
+                            <option value="[%id%]" [%selected%] >[%name%]</option>
+                      }%]
+             </select>
+
+     </div>
+
+
+
+     <!--
+     <script type="text/javascript" src="/_js/lb2/prototype.js"></script>
+     <script type="text/javascript" src="/_js/lb2/scriptaculous.js?load=effects"></script>
+     <script type="text/javascript" src="/_js/lb2/lightbox.js"></script>
+     <link rel="stylesheet" href="/_css/lightbox.css" type="text/css" media="screen" />
+     -->
+
+
+
+     <div class="action-link">
+             <a href="#" class="btn-yes" onclick="submit_forms('profile_form')">Сохранить</a>
+             <a href="/" class="btn-no">Отменить</a>
+     </div>
+     </form>
+</div>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer application="StiReport" type="Flex" version="1.02">
+  <Dictionary isKey="true" Ref="1" type="Dictionary">
+    <Databases isList="true" count="2">
+      <parse isKey="true" Ref="2" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase">
+        <Alias>parse</Alias>
+        <ConnectionStringEncrypted>w1bR62JIo4VgW6nMZFzhc412ZShISwGF6Vr9vWMAYnvVWsMJT0oxhWFLpfjqdOE/1Fpp</ConnectionStringEncrypted>
+        <Name>parse</Name>
+      </parse>
+      <root isKey="true" Ref="3" type="Stimulsoft.Report.Dictionary.StiMySqlDatabase">
+        <Alias>root</Alias>
+        <ConnectionStringEncrypted>w1bZ609NAdliXKno6gDhF41qzQJNBaOkbFy1gOUEJBfTVPUJ</ConnectionStringEncrypted>
+        <Name>root</Name>
+        <PromptUserNameAndPassword>True</PromptUserNameAndPassword>
+      </root>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <plan isKey="true" Ref="4" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>plan</Alias>
+        <Columns isList="true" count="17">
+          <value>id,System.Int32</value>
+          <value>planNumber,System.String</value>
+          <value>year,System.Int32</value>
+          <value>regNum,System.Int32</value>
+          <value>responsible_email,System.String</value>
+          <value>responsible_fax,System.String</value>
+          <value>responsible_middleName,System.String</value>
+          <value>responsible_firstName,System.String</value>
+          <value>responsible_lastName,System.String</value>
+          <value>oktmo_name,System.String</value>
+          <value>oktmo_code,System.String</value>
+          <value>customer_fullName,System.String</value>
+          <value>customer_regNum,System.String</value>
+          <value>publishDate,System.String</value>
+          <value>confirmDate,System.String</value>
+          <value>createDate,System.String</value>
+          <value>fullName,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>plan</Name>
+        <NameInSource>parse</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select * from plan</SqlCommand>
+      </plan>
+      <positions isKey="true" Ref="5" type="Stimulsoft.Report.Dictionary.StiMySqlSource">
+        <Alias>positions</Alias>
+        <Columns isList="true" count="16">
+          <value>id,System.Int32</value>
+          <value>plan_id,System.Int32</value>
+          <value>positionNumber,System.String</value>
+          <value>kbk_code,System.String</value>
+          <value>year,System.String</value>
+          <value>yearAmount,System.String</value>
+          <value>OKVED_code,System.String</value>
+          <value>OKVED_name,System.String</value>
+          <value>contractSubjectName,System.String</value>
+          <value>contractMaxPrice,System.String</value>
+          <value>payments,System.String</value>
+          <value>contractCurrency_code,System.String</value>
+          <value>contractCurrency_name,System.String</value>
+          <value>placingWay_name,System.String</value>
+          <value>positionPublishDate,System.String</value>
+          <value>noPublicDiscussion,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1"/>
+        <Name>positions</Name>
+        <NameInSource>parse</NameInSource>
+        <Parameters isList="true" count="0"/>
+        <SqlCommand>select * from positions</SqlCommand>
+      </positions>
+    </DataSources>
+    <Relations isList="true" count="0"/>
+    <Report isRef="0"/>
+    <Variables isList="true" count="0"/>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0"/>
+  <MetaTags isList="true" count="0"/>
+  <Pages isList="true" count="1">
+    <Page1 isKey="true" Ref="6" type="Page">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <DataBand1 isKey="true" Ref="7" type="DataBand">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text1 isKey="true" Ref="8" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.6,0,3.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="6"/>
+              <Parent isRef="7"/>
+              <Text>{positions.plan_id}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text1>
+            <Text3 isKey="true" Ref="9" type="Text">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.4,0,6.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0"/>
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="6"/>
+              <Parent isRef="7"/>
+              <Text>{positions.OKVED_name}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text3>
+          </Components>
+          <Conditions isList="true" count="0"/>
+          <DataSourceName>positions</DataSourceName>
+          <Filters isList="true" count="0"/>
+          <Interaction isKey="true" Ref="10" type="Stimulsoft.Report.Components.StiBandInteraction">
+            <DrillDownEnabled>True</DrillDownEnabled>
+            <DrillDownParameter1 isKey="true" Ref="11" type="Stimulsoft.Report.Components.StiDrillDownParameter">
+              <Expression>positions.plan_id</Expression>
+              <Name>positions.plan_id</Name>
+            </DrillDownParameter1>
+            <DrillDownReport>Z:\home\parse\www\report\reports\plan.mrt</DrillDownReport>
+          </Interaction>
+          <Name>DataBand1</Name>
+          <Page isRef="6"/>
+          <Parent isRef="6"/>
+          <Sort isList="true" count="0"/>
+        </DataBand1>
+      </Components>
+      <Conditions isList="true" count="0"/>
+      <Guid>d3614e310a91742377787e2c0fc88c1e</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0"/>
+      <Watermark isKey="true" Ref="12" type="Stimulsoft.Report.Components.StiWatermark">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings isKey="true" Ref="13" type="Stimulsoft.Report.Print.StiPrinterSettings"/>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>02/13/2015 10:20:04 AM</ReportChanged>
+  <ReportCreated>02/12/2015 05:23:11 PM</ReportCreated>
+  <ReportFile>Z:\home\parse\www\report\reports\positions.mrt</ReportFile>
+  <ReportGuid>3a0af45aa1aa7600a50b81cd1a8366a0</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.3</ReportVersion>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0"/>
+</StiSerializer>

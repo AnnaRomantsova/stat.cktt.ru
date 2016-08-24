@@ -1,0 +1,90 @@
+<html>
+<head>
+<LINK rel="stylesheet" type="text/css" href="/_css/back.css">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1251">
+<script type="text/javascript" src="/_js/func_include.js"></script>
+<script type="text/javascript">
+        include(new Array('/_js/back/func_validTypeFile.js','/site_builder/includes/show_window/show_window.js','/_js/func_validFields.js'));
+</script>
+<script src="/_js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/_js/jquery.form.js"></script>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+   <tr height="21"><td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+       <td width="100%" nowrap background="/_images/back/sky_title_back2.gif" class="title">
+       [%path/[back/path.html]%]</td>
+       <td width="1" height="15" bgcolor="#5177A3"><img src="/_images/back/spacer.gif" width="1" height="1"></td>
+   </tr>
+</table>
+<br />
+<script>
+  function del_submit(id)  {
+       var el = document.getElementById('id_del_photo');
+       //  alert(el.value);
+       el.value = id;
+       (jQuery)('#del_form').submit();
+
+  }
+
+   //удаление группы
+ $(document).ready(function(){
+    var options = {
+      // target: '#groups',
+       beforeSubmit: showRequest, // функция, вызываемая перед передачей
+       success: showResponse, // функция, вызываемая при получении ответа
+       timeout: 3000 // тайм-аут
+    };
+
+    $('#del_form').submit(function() {
+       $(this).ajaxSubmit(options);
+       return false;
+    });
+ });
+
+  // вызов перед передачей данных
+    function showRequest(formData, jqForm, options) {
+       var queryString = $.param(formData);
+       //alert('Вот что мы передаем: \n\n' + queryString);
+    }
+
+    // вызов после получения ответа
+    function showResponse(responseText, statusText)  {
+       //hide_form('new_group');
+     // alert('Статус ответа сервера: ' + statusText + '\n\nТекст ответа сервера: \n' + responseText +  '\n\nЦелевой элемент div обновиться этим текстом.');
+       //alert(responseText);
+       jQuery('#photo_'+responseText).empty();
+    }
+</script>
+
+  <form method="POST" id="del_form" name="del_form" action="/ajax/del_photo.php" >
+     <input type="hidden" id="id_del_photo" name="id" value="">
+  </form>
+
+<form action="?save[%add/{_new=1}%][%edit/{=[%./id%]}%]" method="post" enctype="multipart/form-data" onsubmit="return val(this,new Array('name','surname','email','pass_text'));">
+<table cellspacing="3" class="form">
+   <tr><td></td><td ></td></tr>
+   <tr><td>*ФИО</td>
+       <td><input type='text' name='fio' value="[%fio%]" size=50 class="textinput" /></td></tr>
+
+   <tr><td>*e-mail</td>
+       <td><input type='text' name='email' value="[%email%]" size=50 class="textinput" /></td></tr>
+   <tr><td>*Пароль</td>
+       <td><input type='text' name='pass_text' value="[%pass_text%]" size=50 class="textinput" /></td></tr>
+       <input type='hidden' name='is_chairman' value="1" />
+
+
+
+
+
+</table>
+
+
+<br /><br />
+
+<br /><br />
+<input type='submit' value='' class='save_but'>&nbsp;&nbsp;
+<input type='button' value='' class='cnsl_but' onclick="location.href='?[%edit/{id_back=[%./id%]}%]';">
+</form>
+</body>
+</html>

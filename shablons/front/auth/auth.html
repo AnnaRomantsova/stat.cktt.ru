@@ -1,0 +1,28 @@
+<div class="page-in page-settings">
+
+      [%path/last/name/{<h4 class="page-title"> [%./name%]</h4>}%]
+      [%content%]
+      <h4 class="page-title">Авторизация</h4>
+      <form action="/auth" id='auth_form' name='auth' method="post">
+      <input type="hidden" name="log_in"/>
+      [%message/{
+            <h3 class="page-title" style="color:red">
+             [%./message%]
+           </h3>
+      }%]
+
+      <div class="line-edit clearfix">
+              <label for="" class="description-field">E-mail</label>
+              <input type="text" class="long-input" name="email" value="[%email%]" placeholder='Введите E-mail'>
+      </div>
+      <div class="line-edit clearfix">
+              <label for="" class="description-field">Пароль</label>
+              <input type="password" class="long-input" name="password" value="[%password%]" placeholder='Введите пароль'>
+      </div>
+       <a href="/auth/forgot/1" >Забыли пароль?</a>
+
+      <div class="action-link">
+              <a href="#" class="btn-yes" onclick="submit_forms('auth_form')">Вход</a>
+      </div>
+      </form>
+</div>
