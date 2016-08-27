@@ -1,3 +1,2 @@
-# stat.cktt.ru
-система мониторинга и анализа информации о закупках.
-парсинг с сайта госзакупок, графики, сложный поиск
+система Мониторинга и анализа информации о государственных закупках. Информация ежедневно парсится с единой информационной системы Российской Федерации государственных и муниципальных закупок. разработана система поиска данных, сортировки данных, автоматическое построение графиков по выбранным даным. используются плагины jquery: datatables, jqueryui, graphics.
+Monitoring and analysis of information on public procurement. Information is parsed every day with unified information of the Russian Federation, state and municipal procurement . developed a data search system , a data sorting , automatic plotting for selected danym . jquery plugins used : datatables, jqueryui, graphics.
